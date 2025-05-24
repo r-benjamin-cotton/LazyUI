@@ -1,0 +1,27 @@
+{
+  "name": "com.r-benjamin-cotton.lazyui",
+  "displayName": "LazyUI",
+  "version": "1.0.0-preview.1",
+  "description": "LazyUI",
+  "unity": "2022.3",
+  "unityRelease": "15f1",
+  "dependencies": {
+    "com.unity.ugui": "1.0.0",
+    "com.unity.inputsystem": "1.7.0",
+    "com.unity.textmeshpro": "3.0.6"
+  },
+  "keywords": [
+    "ui"
+  ],
+  "samples": [
+    {
+      "displayName": "LazyUI Sample",
+      "description": "LazyUI Sample.",
+      "path": "Samples~"
+    }
+  ],
+  "author": {
+    "name": "r.benjamin.cotton",
+    "url": "https://r-benjamin-cotton.github.io/"
+  }
+}
