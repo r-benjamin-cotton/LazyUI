@@ -56,6 +56,9 @@ namespace LazyUI
         private TMPro.TextMeshProUGUI view = null;
 
         [SerializeField]
+        private LazyText lazyView = null;
+
+        [SerializeField]
         [LazyProperty(PropertyValueType.Int32 | PropertyValueType.Single | PropertyValueType.Boolean | PropertyValueType.Enum, false)]
         private LazyProperty targetProperty = new();
 
@@ -379,10 +382,14 @@ namespace LazyUI
         }
         private void UpdateVisuals()
         {
+            var val = targetProperty.GetValue();
             if (view != null)
             {
-                var val = targetProperty.GetValue();
                 view.text = val.ToString();
+            }
+            if (lazyView != null)
+            {
+                lazyView.Text = val.ToString();
             }
             if (fillRect != null)
             {

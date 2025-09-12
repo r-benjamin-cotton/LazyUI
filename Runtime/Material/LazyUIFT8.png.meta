@@ -140,7 +140,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 97
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -160,8 +160,8 @@ TextureImporter:
       name: FT8-31
       rect:
         serializedVersion: 2
-        x: 9
-        y: 97
+        x: 11
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -181,8 +181,8 @@ TextureImporter:
       name: FT8-32
       rect:
         serializedVersion: 2
-        x: 17
-        y: 97
+        x: 21
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -202,8 +202,8 @@ TextureImporter:
       name: FT8-33
       rect:
         serializedVersion: 2
-        x: 25
-        y: 97
+        x: 31
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -223,8 +223,8 @@ TextureImporter:
       name: FT8-34
       rect:
         serializedVersion: 2
-        x: 33
-        y: 97
+        x: 41
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -244,8 +244,8 @@ TextureImporter:
       name: FT8-35
       rect:
         serializedVersion: 2
-        x: 41
-        y: 97
+        x: 51
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -265,8 +265,8 @@ TextureImporter:
       name: FT8-36
       rect:
         serializedVersion: 2
-        x: 49
-        y: 97
+        x: 61
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -286,8 +286,8 @@ TextureImporter:
       name: FT8-37
       rect:
         serializedVersion: 2
-        x: 57
-        y: 97
+        x: 71
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -307,8 +307,8 @@ TextureImporter:
       name: FT8-38
       rect:
         serializedVersion: 2
-        x: 65
-        y: 97
+        x: 81
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -328,8 +328,8 @@ TextureImporter:
       name: FT8-39
       rect:
         serializedVersion: 2
-        x: 73
-        y: 97
+        x: 91
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -349,8 +349,8 @@ TextureImporter:
       name: FT8-3A
       rect:
         serializedVersion: 2
-        x: 81
-        y: 97
+        x: 102
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -370,8 +370,8 @@ TextureImporter:
       name: FT8-3B
       rect:
         serializedVersion: 2
-        x: 89
-        y: 97
+        x: 111
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -392,7 +392,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 89
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -412,8 +412,8 @@ TextureImporter:
       name: FT8-41
       rect:
         serializedVersion: 2
-        x: 9
-        y: 89
+        x: 11
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -433,8 +433,8 @@ TextureImporter:
       name: FT8-42
       rect:
         serializedVersion: 2
-        x: 17
-        y: 89
+        x: 21
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -454,8 +454,8 @@ TextureImporter:
       name: FT8-43
       rect:
         serializedVersion: 2
-        x: 25
-        y: 89
+        x: 31
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -475,8 +475,8 @@ TextureImporter:
       name: FT8-44
       rect:
         serializedVersion: 2
-        x: 33
-        y: 89
+        x: 41
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -496,8 +496,8 @@ TextureImporter:
       name: FT8-45
       rect:
         serializedVersion: 2
-        x: 41
-        y: 89
+        x: 51
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -517,8 +517,8 @@ TextureImporter:
       name: FT8-46
       rect:
         serializedVersion: 2
-        x: 49
-        y: 89
+        x: 61
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -538,8 +538,8 @@ TextureImporter:
       name: FT8-47
       rect:
         serializedVersion: 2
-        x: 57
-        y: 89
+        x: 71
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -559,8 +559,8 @@ TextureImporter:
       name: FT8-48
       rect:
         serializedVersion: 2
-        x: 65
-        y: 89
+        x: 81
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -580,8 +580,8 @@ TextureImporter:
       name: FT8-49
       rect:
         serializedVersion: 2
-        x: 73
-        y: 89
+        x: 91
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -601,8 +601,8 @@ TextureImporter:
       name: FT8-4A
       rect:
         serializedVersion: 2
-        x: 81
-        y: 89
+        x: 101
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -622,8 +622,8 @@ TextureImporter:
       name: FT8-4B
       rect:
         serializedVersion: 2
-        x: 89
-        y: 89
+        x: 111
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -643,8 +643,8 @@ TextureImporter:
       name: FT8-4C
       rect:
         serializedVersion: 2
-        x: 97
-        y: 89
+        x: 121
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -664,8 +664,8 @@ TextureImporter:
       name: FT8-4D
       rect:
         serializedVersion: 2
-        x: 105
-        y: 89
+        x: 131
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -685,8 +685,8 @@ TextureImporter:
       name: FT8-4E
       rect:
         serializedVersion: 2
-        x: 113
-        y: 89
+        x: 141
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -706,8 +706,8 @@ TextureImporter:
       name: FT8-4F
       rect:
         serializedVersion: 2
-        x: 121
-        y: 89
+        x: 151
+        y: 111
         width: 6
         height: 6
       alignment: 0
@@ -728,7 +728,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 81
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -748,8 +748,8 @@ TextureImporter:
       name: FT8-51
       rect:
         serializedVersion: 2
-        x: 9
-        y: 81
+        x: 11
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -769,8 +769,8 @@ TextureImporter:
       name: FT8-52
       rect:
         serializedVersion: 2
-        x: 17
-        y: 81
+        x: 21
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -790,8 +790,8 @@ TextureImporter:
       name: FT8-53
       rect:
         serializedVersion: 2
-        x: 25
-        y: 81
+        x: 31
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -811,8 +811,8 @@ TextureImporter:
       name: FT8-54
       rect:
         serializedVersion: 2
-        x: 33
-        y: 81
+        x: 41
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -832,8 +832,8 @@ TextureImporter:
       name: FT8-55
       rect:
         serializedVersion: 2
-        x: 41
-        y: 81
+        x: 51
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -853,8 +853,8 @@ TextureImporter:
       name: FT8-56
       rect:
         serializedVersion: 2
-        x: 49
-        y: 81
+        x: 61
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -874,8 +874,8 @@ TextureImporter:
       name: FT8-57
       rect:
         serializedVersion: 2
-        x: 57
-        y: 81
+        x: 71
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -895,8 +895,8 @@ TextureImporter:
       name: FT8-58
       rect:
         serializedVersion: 2
-        x: 65
-        y: 81
+        x: 81
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -916,8 +916,8 @@ TextureImporter:
       name: FT8-59
       rect:
         serializedVersion: 2
-        x: 73
-        y: 81
+        x: 91
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -937,8 +937,8 @@ TextureImporter:
       name: FT8-5A
       rect:
         serializedVersion: 2
-        x: 81
-        y: 81
+        x: 101
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -958,8 +958,8 @@ TextureImporter:
       name: FT8-5B
       rect:
         serializedVersion: 2
-        x: 89
-        y: 81
+        x: 111
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -979,8 +979,8 @@ TextureImporter:
       name: FT8-5C
       rect:
         serializedVersion: 2
-        x: 97
-        y: 81
+        x: 121
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -1000,8 +1000,8 @@ TextureImporter:
       name: FT8-5D
       rect:
         serializedVersion: 2
-        x: 105
-        y: 81
+        x: 131
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -1021,8 +1021,8 @@ TextureImporter:
       name: FT8-5E
       rect:
         serializedVersion: 2
-        x: 113
-        y: 81
+        x: 141
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -1042,8 +1042,8 @@ TextureImporter:
       name: FT8-5F
       rect:
         serializedVersion: 2
-        x: 121
-        y: 81
+        x: 151
+        y: 101
         width: 6
         height: 6
       alignment: 0
@@ -1064,7 +1064,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 73
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1084,8 +1084,8 @@ TextureImporter:
       name: FT8-61
       rect:
         serializedVersion: 2
-        x: 9
-        y: 73
+        x: 11
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1105,8 +1105,8 @@ TextureImporter:
       name: FT8-62
       rect:
         serializedVersion: 2
-        x: 17
-        y: 73
+        x: 21
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1126,8 +1126,8 @@ TextureImporter:
       name: FT8-63
       rect:
         serializedVersion: 2
-        x: 25
-        y: 73
+        x: 31
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1147,8 +1147,8 @@ TextureImporter:
       name: FT8-64
       rect:
         serializedVersion: 2
-        x: 33
-        y: 73
+        x: 41
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1168,8 +1168,8 @@ TextureImporter:
       name: FT8-65
       rect:
         serializedVersion: 2
-        x: 41
-        y: 73
+        x: 51
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1189,8 +1189,8 @@ TextureImporter:
       name: FT8-66
       rect:
         serializedVersion: 2
-        x: 49
-        y: 73
+        x: 61
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1210,8 +1210,8 @@ TextureImporter:
       name: FT8-67
       rect:
         serializedVersion: 2
-        x: 57
-        y: 73
+        x: 71
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1231,8 +1231,8 @@ TextureImporter:
       name: FT8-68
       rect:
         serializedVersion: 2
-        x: 65
-        y: 73
+        x: 81
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1252,8 +1252,8 @@ TextureImporter:
       name: FT8-69
       rect:
         serializedVersion: 2
-        x: 73
-        y: 73
+        x: 91
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1273,8 +1273,8 @@ TextureImporter:
       name: FT8-6A
       rect:
         serializedVersion: 2
-        x: 81
-        y: 73
+        x: 101
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1294,8 +1294,8 @@ TextureImporter:
       name: FT8-6B
       rect:
         serializedVersion: 2
-        x: 89
-        y: 73
+        x: 111
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1315,8 +1315,8 @@ TextureImporter:
       name: FT8-6C
       rect:
         serializedVersion: 2
-        x: 97
-        y: 73
+        x: 121
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1336,8 +1336,8 @@ TextureImporter:
       name: FT8-6D
       rect:
         serializedVersion: 2
-        x: 105
-        y: 73
+        x: 131
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1357,8 +1357,8 @@ TextureImporter:
       name: FT8-6E
       rect:
         serializedVersion: 2
-        x: 113
-        y: 73
+        x: 141
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1378,8 +1378,8 @@ TextureImporter:
       name: FT8-6F
       rect:
         serializedVersion: 2
-        x: 121
-        y: 73
+        x: 151
+        y: 91
         width: 6
         height: 6
       alignment: 0
@@ -1399,8 +1399,8 @@ TextureImporter:
       name: FT8-21
       rect:
         serializedVersion: 2
-        x: 9
-        y: 105
+        x: 11
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1420,8 +1420,8 @@ TextureImporter:
       name: FT8-22
       rect:
         serializedVersion: 2
-        x: 17
-        y: 105
+        x: 21
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1441,8 +1441,8 @@ TextureImporter:
       name: FT8-23
       rect:
         serializedVersion: 2
-        x: 25
-        y: 105
+        x: 31
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1462,8 +1462,8 @@ TextureImporter:
       name: FT8-24
       rect:
         serializedVersion: 2
-        x: 33
-        y: 105
+        x: 41
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1483,8 +1483,8 @@ TextureImporter:
       name: FT8-25
       rect:
         serializedVersion: 2
-        x: 41
-        y: 105
+        x: 51
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1504,8 +1504,8 @@ TextureImporter:
       name: FT8-26
       rect:
         serializedVersion: 2
-        x: 49
-        y: 105
+        x: 61
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1525,8 +1525,8 @@ TextureImporter:
       name: FT8-27
       rect:
         serializedVersion: 2
-        x: 57
-        y: 105
+        x: 71
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1546,8 +1546,8 @@ TextureImporter:
       name: FT8-28
       rect:
         serializedVersion: 2
-        x: 65
-        y: 105
+        x: 81
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1567,8 +1567,8 @@ TextureImporter:
       name: FT8-29
       rect:
         serializedVersion: 2
-        x: 73
-        y: 105
+        x: 91
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1588,8 +1588,8 @@ TextureImporter:
       name: FT8-2A
       rect:
         serializedVersion: 2
-        x: 81
-        y: 105
+        x: 102
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1609,8 +1609,8 @@ TextureImporter:
       name: FT8-2B
       rect:
         serializedVersion: 2
-        x: 89
-        y: 105
+        x: 111
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1630,8 +1630,8 @@ TextureImporter:
       name: FT8-2C
       rect:
         serializedVersion: 2
-        x: 97
-        y: 105
+        x: 121
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1651,8 +1651,8 @@ TextureImporter:
       name: FT8-2D
       rect:
         serializedVersion: 2
-        x: 105
-        y: 105
+        x: 131
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1672,8 +1672,8 @@ TextureImporter:
       name: FT8-2E
       rect:
         serializedVersion: 2
-        x: 113
-        y: 105
+        x: 141
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1693,8 +1693,8 @@ TextureImporter:
       name: FT8-2F
       rect:
         serializedVersion: 2
-        x: 121
-        y: 105
+        x: 151
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1714,8 +1714,8 @@ TextureImporter:
       name: FT8-3C
       rect:
         serializedVersion: 2
-        x: 97
-        y: 97
+        x: 121
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -1735,8 +1735,8 @@ TextureImporter:
       name: FT8-3D
       rect:
         serializedVersion: 2
-        x: 105
-        y: 97
+        x: 131
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -1756,8 +1756,8 @@ TextureImporter:
       name: FT8-3E
       rect:
         serializedVersion: 2
-        x: 113
-        y: 97
+        x: 141
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -1777,8 +1777,8 @@ TextureImporter:
       name: FT8-3F
       rect:
         serializedVersion: 2
-        x: 121
-        y: 97
+        x: 151
+        y: 121
         width: 6
         height: 6
       alignment: 0
@@ -1799,7 +1799,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 105
+        y: 131
         width: 6
         height: 6
       alignment: 0
@@ -1820,7 +1820,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 65
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -1840,8 +1840,8 @@ TextureImporter:
       name: FT8_71
       rect:
         serializedVersion: 2
-        x: 9
-        y: 65
+        x: 11
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -1861,8 +1861,8 @@ TextureImporter:
       name: FT8_72
       rect:
         serializedVersion: 2
-        x: 17
-        y: 65
+        x: 21
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -1882,8 +1882,8 @@ TextureImporter:
       name: FT8_73
       rect:
         serializedVersion: 2
-        x: 25
-        y: 65
+        x: 31
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -1903,8 +1903,8 @@ TextureImporter:
       name: FT8_74
       rect:
         serializedVersion: 2
-        x: 33
-        y: 65
+        x: 41
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -1924,8 +1924,8 @@ TextureImporter:
       name: FT8_75
       rect:
         serializedVersion: 2
-        x: 41
-        y: 65
+        x: 51
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -1945,8 +1945,8 @@ TextureImporter:
       name: FT8_76
       rect:
         serializedVersion: 2
-        x: 49
-        y: 65
+        x: 61
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -1966,8 +1966,8 @@ TextureImporter:
       name: FT8_77
       rect:
         serializedVersion: 2
-        x: 57
-        y: 65
+        x: 71
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -1987,8 +1987,8 @@ TextureImporter:
       name: FT8_78
       rect:
         serializedVersion: 2
-        x: 65
-        y: 65
+        x: 81
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -2008,8 +2008,8 @@ TextureImporter:
       name: FT8_79
       rect:
         serializedVersion: 2
-        x: 73
-        y: 65
+        x: 91
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -2029,8 +2029,8 @@ TextureImporter:
       name: FT8_7A
       rect:
         serializedVersion: 2
-        x: 81
-        y: 65
+        x: 101
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -2050,8 +2050,8 @@ TextureImporter:
       name: FT8_7B
       rect:
         serializedVersion: 2
-        x: 89
-        y: 65
+        x: 111
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -2071,8 +2071,8 @@ TextureImporter:
       name: FT8_7C
       rect:
         serializedVersion: 2
-        x: 97
-        y: 65
+        x: 121
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -2092,8 +2092,8 @@ TextureImporter:
       name: FT8_7D
       rect:
         serializedVersion: 2
-        x: 105
-        y: 65
+        x: 131
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -2113,8 +2113,8 @@ TextureImporter:
       name: FT8_7E
       rect:
         serializedVersion: 2
-        x: 113
-        y: 65
+        x: 141
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -2134,8 +2134,8 @@ TextureImporter:
       name: FT8_7F
       rect:
         serializedVersion: 2
-        x: 121
-        y: 65
+        x: 151
+        y: 81
         width: 6
         height: 6
       alignment: 0
@@ -2147,6 +2147,27 @@ TextureImporter:
       bones: []
       spriteID: 0b15484112f0d3845809e94f15389d34
       internalID: 1405518569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FT8_Cursor
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 141
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d67c7de5bd0678e409bb37e303f1631d
+      internalID: -1264546622
       vertices: []
       indices: 
       edges: []
@@ -2274,6 +2295,8 @@ TextureImporter:
       FT8_7D: -466927236
       FT8_7E: 820567240
       FT8_7F: 1405518569
+      FT8_Cursor: -1264546622
+      LazyUIFT8_0: -833129081
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

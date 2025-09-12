@@ -21,6 +21,9 @@ namespace LazyUI
         private TMP_InputField inputField = null;
 
         [SerializeField]
+        private LazyInputField lazyInputField = null;
+
+        [SerializeField]
         private int clamp = 0;
 
         [SerializeField]
@@ -39,7 +42,7 @@ namespace LazyUI
             {
                 return;
             }
-            if (inputField.isFocused)
+            if (((inputField != null) && inputField.isFocused) || ((lazyInputField != null) && lazyInputField.HasFocus))
             {
                 return;
             }
@@ -61,14 +64,28 @@ namespace LazyUI
                         {
                             txt = txt.Substring(txt.Length - clamp, clamp);
                         }
-                        inputField.text = txt;
+                        if (inputField != null)
+                        {
+                            inputField.text = txt;
+                        }
+                        if (lazyInputField != null)
+                        {
+                            lazyInputField.Text = txt;
+                        }
                     }
                     break;
                 case ExtraContentType.Nop:
                 default:
                     {
                         var txt = LazyProperty.FormatString(propertyValue, targetProperty.GetValueType());
-                        inputField.text = txt;
+                        if (inputField != null)
+                        {
+                            inputField.text = txt;
+                        }
+                        if (lazyInputField != null)
+                        {
+                            lazyInputField.Text = txt;
+                        }
                     }
                     break;
             }
@@ -118,6 +135,25 @@ namespace LazyUI
                     text = text[(text.Length - clamp)..];
                     inputField.text = text;
                 }
+            }
+            if (lazyInputField != null)
+            {
+                lazyInputField.Text = text;
+            }
+        }
+        private void OnValueChangedLazy(string text)
+        {
+            if (clamp > 0)
+            {
+                if (text.Length > clamp)
+                {
+                    text = text[(text.Length - clamp)..];
+                    lazyInputField.Text = text;
+                }
+            }
+            if (inputField != null)
+            {
+                inputField.text = text;
             }
         }
         private char OnValidateInput(string text, int charIndex, char addedChar)
@@ -171,10 +207,19 @@ namespace LazyUI
         }
         private void OnEnable()
         {
-            //inputField.onSubmit.AddListener(OnSubmit);
-            inputField.onEndEdit.AddListener(OnSubmit);
-            inputField.onValueChanged.AddListener(OnValueChanged);
-            inputField.onValidateInput += OnValidateInput;
+            if (inputField != null)
+            {
+                //inputField.onSubmit.AddListener(OnSubmit);
+                inputField.onEndEdit.AddListener(OnSubmit);
+                inputField.onValueChanged.AddListener(OnValueChanged);
+                inputField.onValidateInput += OnValidateInput;
+            }
+            if (lazyInputField != null)
+            {
+                lazyInputField.onEndEdit.AddListener(OnSubmit);
+                lazyInputField.onValueChanged.AddListener(OnValueChangedLazy);
+                lazyInputField.OnValidateInput += OnValidateInput;
+            }
             LazyCallbacker.RegisterCallback(LazyCallbacker.CallbackType.YieldNull, 0, UpdateState);
             if (started)
             {
@@ -192,15 +237,25 @@ namespace LazyUI
         {
             currentValue = null;
             LazyCallbacker.RemoveCallback(LazyCallbacker.CallbackType.YieldNull, 0, UpdateState);
-            //inputField.onSubmit.RemoveListener(OnSubmit);
-            inputField.onEndEdit.RemoveListener(OnSubmit);
-            inputField.onValueChanged.RemoveListener(OnValueChanged);
-            inputField.onValidateInput -= OnValidateInput;
+            if (inputField != null)
+            {
+                //inputField.onSubmit.RemoveListener(OnSubmit);
+                inputField.onEndEdit.RemoveListener(OnSubmit);
+                inputField.onValueChanged.RemoveListener(OnValueChanged);
+                inputField.onValidateInput -= OnValidateInput;
+            }
+            if (lazyInputField != null)
+            {
+                lazyInputField.onEndEdit.RemoveListener(OnSubmit);
+                lazyInputField.onValueChanged.RemoveListener(OnValueChangedLazy);
+                lazyInputField.OnValidateInput -= OnValidateInput;
+            }
         }
 #if UNITY_EDITOR
         private void Reset()
         {
             inputField = GetComponent<TMP_InputField>();
+            lazyInputField = GetComponent<LazyInputField>();
         }
         private void DelayedUpdate()
         {

@@ -85,5 +85,49 @@ namespace LazyUI
             var go = Instantiate("PropertyInputField (TMP)");
             PlaceUIElementRoot(go, menuCommand);
         }
+
+
+        [MenuItem("GameObject/LazyUI/PropertyRadioButton (Pixel)", priority = 9, secondaryPriority = 11)]
+        public static void CreatePropertyRadioButtonPixel(MenuCommand menuCommand)
+        {
+            var go = Instantiate("PropertyRadioButton (Pixel)");
+            PlaceUIElementRoot(go, menuCommand);
+        }
+        [MenuItem("GameObject/LazyUI/PropertyRotarySwitch (Pixel)", priority = 9, secondaryPriority = 12)]
+        public static void CreatePropertyRotarySwitchPixel(MenuCommand menuCommand)
+        {
+            var go = Instantiate("PropertyRotarySwitch (Pixel)");
+            PlaceUIElementRoot(go, menuCommand);
+        }
+        [MenuItem("GameObject/LazyUI/PropertySelector (Pixel)", priority = 9, secondaryPriority = 13)]
+        public static void CreatePropertySelectorPixel(MenuCommand menuCommand)
+        {
+            var go = Instantiate("PropertySelector (Pixel)");
+            PlaceUIElementRoot(go, menuCommand);
+        }
+        [MenuItem("GameObject/LazyUI/PropertySlider (Pixel)", priority = 9, secondaryPriority = 14)]
+        public static void CreatePropertySliderPixel(MenuCommand menuCommand)
+        {
+            var go = Instantiate("PropertySlider (Pixel)");
+            PlaceUIElementRoot(go, menuCommand);
+        }
+        [MenuItem("GameObject/LazyUI/PropertyRangeSlider (Pixel)", priority = 9, secondaryPriority = 15)]
+        public static void CreatePropertyRangeSliderPixel(MenuCommand menuCommand)
+        {
+            var go = Instantiate("PropertyRangeSlider (Pixel)");
+            PlaceUIElementRoot(go, menuCommand);
+        }
+        [MenuItem("GameObject/LazyUI/PropertyText (Pixel)", priority = 9, secondaryPriority = 17)]
+        public static void CreatePropertyTextPixel(MenuCommand menuCommand)
+        {
+            var go = Instantiate("PropertyText (Pixel)");
+            PlaceUIElementRoot(go, menuCommand);
+        }
+        [MenuItem("GameObject/LazyUI/PropertyInputField (Pixel)", priority = 9, secondaryPriority = 18)]
+        public static void CreatePropertyInputFieldPixel(MenuCommand menuCommand)
+        {
+            var go = Instantiate("PropertyInputField (Pixel)");
+            PlaceUIElementRoot(go, menuCommand);
+        }
     }
 }

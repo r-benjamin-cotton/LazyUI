@@ -63,6 +63,7 @@ namespace LazyUI
         private bool immediate = false;
         private Vector2 itemSize = Vector2.one;
         private Vector2 viewOrg = Vector2.zero;
+        private Vector2 dragPosition = default;
 
         private bool opened = false;
         private bool dragging = false;
@@ -78,6 +79,7 @@ namespace LazyUI
             public CanvasGroup group;
             public Image image;
             public TMPro.TextMeshProUGUI text;
+            public LazyText lazyText;
         }
         private readonly List<ItemInfo> itemInfos = new();
         private readonly Vector2[] dir = { new(1, 0), new(-1, 0), new(0, 1), new(0, -1) };
@@ -212,6 +214,7 @@ namespace LazyUI
                             ii.group = null;
                             ii.image = null;
                             ii.text = null;
+                            ii.lazyText = null;
                         }
                     }
                     else
@@ -222,6 +225,7 @@ namespace LazyUI
                             ii.group = null;
                             ii.image = null;
                             ii.text = null;
+                            ii.lazyText = null;
                         }
                     }
                 }
@@ -232,6 +236,7 @@ namespace LazyUI
                     ii.group = null;
                     ii.image = null;
                     ii.text = null;
+                    ii.lazyText = null;
                     itemInfos.Add(ii);
                 }
                 if (ReferenceEquals(ii.element, null))
@@ -266,6 +271,11 @@ namespace LazyUI
                         if (ii.text != null)
                         {
                             ii.text.text = item.text;
+                        }
+                        ii.lazyText = GetChildComponent<LazyText>(ii.element);
+                        if (ii.lazyText != null)
+                        {
+                            ii.lazyText.Text = item.text;
                         }
                     }
                 }
@@ -437,6 +447,7 @@ namespace LazyUI
                 return;
             }
 #endif
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, eventData.pressEventCamera, out dragPosition);
             Open();
         }
         public override void OnPointerUp(PointerEventData eventData)
@@ -481,7 +492,11 @@ namespace LazyUI
             {
                 return;
             }
-            var dt = Vector2.Dot(eventData.delta / itemSize, dir[(int)direction]);
+            Vector2 p1;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, eventData.pressEventCamera, out p1);
+            var dd = p1 - dragPosition;
+            dragPosition = p1;
+            var dt = Vector2.Dot(dd / itemSize, dir[(int)direction]);
             if (reverseScroll)
             {
                 dt = -dt;

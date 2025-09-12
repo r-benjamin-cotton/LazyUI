@@ -59,6 +59,12 @@ namespace LazyUI
         private TMPro.TextMeshProUGUI textMax = null;
 
         [SerializeField]
+        private LazyText lazyTextMin = null;
+
+        [SerializeField]
+        private LazyText lazyTextMax = null;
+
+        [SerializeField]
         private string textFormat = "";
 
         [SerializeField]
@@ -362,6 +368,14 @@ namespace LazyUI
                                 {
                                     textMax.text = intValue.MaxValue.ToString(textFormat);
                                 }
+                                if (lazyTextMin != null)
+                                {
+                                    lazyTextMin.Text = intValue.MinValue.ToString(textFormat);
+                                }
+                                if (lazyTextMax != null)
+                                {
+                                    lazyTextMax.Text = intValue.MaxValue.ToString(textFormat);
+                                }
                             }
                         }
                         break;
@@ -374,6 +388,14 @@ namespace LazyUI
                             if (textMax != null)
                             {
                                 textMax.text = value.MaxValue.ToString(textFormat);
+                            }
+                            if (lazyTextMin != null)
+                            {
+                                lazyTextMin.Text = value.MinValue.ToString(textFormat);
+                            }
+                            if (lazyTextMax != null)
+                            {
+                                lazyTextMax.Text = value.MaxValue.ToString(textFormat);
                             }
                         }
                         break;

@@ -38,6 +38,9 @@ namespace LazyUI
         private float gap = 0.2f;
 
         [SerializeField]
+        private float dragSensitivity = 2;
+
+        [SerializeField]
         private PropertySlider targetSlider = null;
 
         [SerializeField]
@@ -180,9 +183,9 @@ namespace LazyUI
             buttonDown = (int)eventData.button;
             //if (eventData.button == PointerEventData.InputButton.Left)
             {
-                downPoint = eventData.position;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, eventData.pressEventCamera, out downPoint);
                 clickCount = 0;
-                clickDelta = CalcClickDelta(eventData);
+                clickDelta = CalcClickDelta(downPoint);
                 if (quickButton)
                 {
                     Click(clickDelta);
@@ -225,8 +228,7 @@ namespace LazyUI
             }
             if ((targetSlider == null) && (targetSelector == null))
             {
-                dragDelta = CalcDragDelta(eventData);
-                Click(dragDelta);
+                dragDelta = 0;
             }
             OnBeginDrag(eventData);
         }
@@ -236,7 +238,9 @@ namespace LazyUI
             {
                 return;
             }
-            var delta = eventData.position - downPoint;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, eventData.pressEventCamera, out Vector2 pos);
+
+            var delta = pos - downPoint;
             if (targetSlider != null)
             {
                 var reverse = Reverse != targetSlider.Reverse;
@@ -255,7 +259,9 @@ namespace LazyUI
             }
             if ((targetSlider == null) && (targetSelector == null))
             {
-                var dt = CalcDragDelta(eventData);
+                var rect = rectTransform.rect;
+                var size = rectTransform.rect.size[Axis];
+                var dt = (int)(delta[Axis] / size * dragSensitivity);
                 Click(dt - dragDelta);
                 dragDelta = dt;
             }
@@ -304,30 +310,17 @@ namespace LazyUI
                 Click(di);
             }
         }
-        private int CalcClickDelta(PointerEventData eventData)
+        private int CalcClickDelta(Vector2 point)
         {
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, eventData.pressEventCamera, out Vector2 clickPoint);
             var rect = rectTransform.rect;
             var space = Mathf.Clamp01(gap) * 0.5f;//上下の隙間をrectの割合で指定
             var rw = rect.width * space;
             var rh = rect.height * space;
-            var pos = clickPoint - rect.center;
+            var pos = point - rect.center;
             pos *= new Vector2(1.0f / rw, 1.0f / rh);
             //LazyDebug.Log($"{pos} {rw},{rh}  {rect}");
             var dt = Vector2.Dot(pos, scrollDir[(int)direction]);
             return Mathf.Clamp((int)dt, -1, +1);
-        }
-        private int CalcDragDelta(PointerEventData eventData)
-        {
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, eventData.pressEventCamera, out Vector2 dragPoint);
-            var rect = rectTransform.rect;
-            var space = 0.2f;
-            var rw = rect.width * space;
-            var rh = rect.height * space;
-            var pos = dragPoint - rect.center;
-            pos *= new Vector2(1.0f / rw, 1.0f / rh);
-            var dt = Vector2.Dot(pos, scrollDir[(int)direction]);
-            return (int)dt;
         }
         private void UpdateInput()
         {

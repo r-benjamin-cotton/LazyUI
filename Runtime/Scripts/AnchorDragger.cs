@@ -31,8 +31,6 @@ namespace LazyUI
 
         private int snapDistance = 4;
 
-        private Canvas canvas = null;
-        private Camera canvasCamera = null;
         private bool dragging = false;
         private int button = -1;
         private Vector2 origin = default;
@@ -40,9 +38,9 @@ namespace LazyUI
 
         private static readonly HashSet<AnchorDragger> draggers = new();
 
-        private void Drag(Vector2 point)
+        private void Drag(PointerEventData eventData)
         {
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRectTransform, point, canvasCamera, out Vector2 target);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRectTransform, eventData.position, eventData.pressEventCamera, out Vector2 target);
             var dt = target - origin;
 #if true
             dt = Floor(dt);
@@ -161,7 +159,7 @@ namespace LazyUI
         {
             var p0 = eventData.position;
             var parentRectTransform = rectTransform.parent as RectTransform;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRectTransform, p0, canvasCamera, out origin);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRectTransform, p0, eventData.pressEventCamera, out origin);
             dragAnchorPos = rectTransform.anchoredPosition;
         }
         void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
@@ -205,7 +203,7 @@ namespace LazyUI
             if (parentRectTransform != null)
             {
                 {
-                    Drag(eventData.position);
+                    Drag(eventData);
                 }
                 if (snap)
                 {
@@ -268,8 +266,6 @@ namespace LazyUI
         protected override void OnEnable()
         {
             base.OnEnable();
-            canvas = GetComponentInParent<Canvas>();
-            canvasCamera = (canvas.renderMode == RenderMode.ScreenSpaceOverlay) ? null : canvas.worldCamera;
             {
                 draggers.Add(this);
             }
@@ -288,8 +284,6 @@ namespace LazyUI
                 draggers.Remove(this);
             }
             Save();
-            canvas = null;
-            canvasCamera = null;
             button = -1;
             base.OnDisable();
         }

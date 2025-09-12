@@ -291,7 +291,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -299,6 +299,27 @@ TextureImporter:
       bones: []
       spriteID: e11eeac6f2514d74ea532dcbeac6d1ad
       internalID: -337511855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LazyUISprites_Blank
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 240
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87714591596f1ec4e88e3084e5606d54
+      internalID: 37529381
       vertices: []
       indices: 
       edges: []
@@ -315,6 +336,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       LazyUISprites_Batsu: -1087993192
+      LazyUISprites_Blank: 37529381
       LazyUISprites_Checkmark: 443777492
       LazyUISprites_Maru: 2110519029
       LazyUISprites_Plate: -308534748

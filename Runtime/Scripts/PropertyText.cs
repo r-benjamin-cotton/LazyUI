@@ -6,12 +6,15 @@ using UnityEngine;
 namespace LazyUI
 {
     /// <summary>
-    /// 指定プロパティを文字列にしてTextMeshProのtextへセット
+    /// 指定プロパティを文字列にしてTextMeshProとlazytextへセット
     /// </summary>
     public class PropertyText : MonoBehaviour
     {
         [SerializeField]
         private TMPro.TextMeshProUGUI textMesh = null;
+
+        [SerializeField]
+        private LazyText lazyText = null;
 
         [SerializeField]
         [LazyProperty(PropertyValueType.Everything, false, false)]
@@ -46,11 +49,7 @@ namespace LazyUI
         }
         private void UpdateState()
         {
-            if (textMesh == null)
-            {
-                return;
-            }
-            if (!textMesh.IsActive())
+            if ((textMesh == null) && (lazyText == null))
             {
                 return;
             }
@@ -69,7 +68,15 @@ namespace LazyUI
             }
             propertyValue = v;
             var vt = targetProperty.GetValueType();
-            textMesh.text = LazyProperty.FormatString(v, vt, format);
+            var text = LazyProperty.FormatString(v, vt, format);
+            if (textMesh != null)
+            {
+                textMesh.text = text;
+            }
+            if (lazyText != null)
+            {
+                lazyText.Text = text;
+            }
         }
 
         private void Awake()
@@ -96,6 +103,11 @@ namespace LazyUI
             LazyCallbacker.RemoveCallback(LazyCallbacker.CallbackType.YieldNull, 0, UpdateState);
         }
 #if UNITY_EDITOR
+        private void Reset()
+        {
+            textMesh = GetComponent<TMPro.TextMeshProUGUI>();
+            lazyText = GetComponent<LazyText>();
+        }
         private void DelayedUpdate()
         {
             if ((this == null) || !isActiveAndEnabled)
@@ -107,10 +119,6 @@ namespace LazyUI
         }
         protected void OnValidate()
         {
-            if (textMesh == null)
-            {
-                textMesh = GetComponent<TMPro.TextMeshProUGUI>();
-            }
             UnityEditor.EditorApplication.delayCall += DelayedUpdate;
         }
 #endif
