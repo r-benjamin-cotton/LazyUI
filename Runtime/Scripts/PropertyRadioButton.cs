@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 namespace LazyUI
 {
     /// <summary>
-    /// w’è‚ÌƒvƒƒpƒeƒB‚ğ’¼Ú‘€ì‚·‚éƒ‰ƒWƒIƒ{ƒ^ƒ“
+    /// æŒ‡å®šã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’ç›´æ¥æ“ä½œã™ã‚‹ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³
     /// </summary>
     [RequireComponent(typeof(RectTransform))]
     public class PropertyRadioButton : Selectable, ISubmitHandler

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +7,9 @@ using UnityEngine.InputSystem.Utilities;
 namespace LazyUI
 {
     /// <summary>
-    /// ‘Ó‘Ä‚ÈƒeƒNƒXƒ`ƒƒƒtƒHƒ“ƒg
-    /// “™ŠÔŠuƒOƒŠƒbƒh(DWidth,Dheight)‚Åcharacters‚Åw’è‚µ‚½‡‚ÉŠ„‚è“–‚Ä,”¼’[‚ÍØ‚èÌ‚Ä
-    /// metrics‚ÅŒÂ•Ê‚É‘ã‘Ö•¶šAŠî€ˆÊ’uA•‚ğã‘‚«w’è‚Å‚«‚é
+    /// æ€ æƒ°ãªãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ•ã‚©ãƒ³ãƒˆ
+    /// ç­‰é–“éš”ã‚°ãƒªãƒƒãƒ‰(DWidth,Dheight)ã§charactersã§æŒ‡å®šã—ãŸé †ã«å‰²ã‚Šå½“ã¦,åŠç«¯ã¯åˆ‡ã‚Šæ¨ã¦
+    /// metricsã§å€‹åˆ¥ã«ä»£æ›¿æ–‡å­—ã€åŸºæº–ä½ç½®ã€å¹…ã‚’ä¸Šæ›¸ãæŒ‡å®šã§ãã‚‹
     /// 
     ///  <------->width
     ///  |   *      ^

@@ -1,17 +1,17 @@
-using LazyUI;
+ï»¿using LazyUI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 /// <summary>
-/// LazyUI‚ÌƒTƒ“ƒvƒ‹
-/// ƒvƒƒpƒeƒB‚ğŒöŠJ‚µ‚ÄLazyUI‚©‚ç‘€ì‚µ‚Ü‚·B
+/// LazyUIã®ã‚µãƒ³ãƒ—ãƒ«
+/// ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’å…¬é–‹ã—ã¦LazyUIã‹ã‚‰æ“ä½œã—ã¾ã™ã€‚
 /// </summary>
 public class LazyUISampleTarget : MonoBehaviour
 {
     /// <summary>
-    /// ’l‚Ì•ÏX‚ğƒRƒ“ƒ\[ƒ‹‚Ö•\¦
+    /// å€¤ã®å¤‰æ›´ã‚’ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã¸è¡¨ç¤º
     /// </summary>
     public bool Verbose = false;
 
@@ -25,7 +25,7 @@ public class LazyUISampleTarget : MonoBehaviour
     }
     private TestEnumType testEnum = TestEnumType.TestB;
     /// <summary>
-    /// —ñ‹“Œ^‚Ìƒfƒ‚
+    /// åˆ—æŒ™å‹ã®ãƒ‡ãƒ¢
     /// </summary>
     public TestEnumType TestEnum
     {
@@ -108,8 +108,8 @@ public class LazyUISampleTarget : MonoBehaviour
 
     private float testFloat = 1.23f;
     /// <summary>
-    /// floatŒ^‚Ìƒfƒ‚
-    /// float‚âint“™‚Å‚Í"ƒvƒƒpƒeƒB–¼+Range"‚ÅrangeŒ^‚ğ•Ô‚·‚Æ“®“I‚É’l‚Ì”ÍˆÍ‚ğw’è‚·‚é‚±‚Æ‚ª‚Å‚«‚éB
+    /// floatå‹ã®ãƒ‡ãƒ¢
+    /// floatã‚„intç­‰ã§ã¯"ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å+Range"ã§rangeå‹ã‚’è¿”ã™ã¨å‹•çš„ã«å€¤ã®ç¯„å›²ã‚’æŒ‡å®šã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
     /// </summary>
     public float TestFloat
     {
@@ -132,7 +132,7 @@ public class LazyUISampleTarget : MonoBehaviour
     }
     private Range<float> testFloatRange = new Range<float>(-2, +2);
     /// <summary>
-    /// TestFloat‚Ì”ÍˆÍ‚ğ“®“I‚É•ÏX‚·‚éƒfƒ‚
+    /// TestFloatã®ç¯„å›²ã‚’å‹•çš„ã«å¤‰æ›´ã™ã‚‹ãƒ‡ãƒ¢
     /// </summary>
     public Range<float> TestFloatRange
     {
@@ -155,7 +155,7 @@ public class LazyUISampleTarget : MonoBehaviour
     }
 #if true
     /// <summary>
-    /// TestFloatRange‚Ì”ÍˆÍw’èA–³Œø‚Ìê‡‚ÍUI‚Åw’è‚µ‚½minValue/maxValue‚ªg‚í‚ê‚é
+    /// TestFloatRangeã®ç¯„å›²æŒ‡å®šã€ç„¡åŠ¹ã®å ´åˆã¯UIã§æŒ‡å®šã—ãŸminValue/maxValueãŒä½¿ã‚ã‚Œã‚‹
     /// </summary>
     public Range<float> TestFloatRangeRange
     {
@@ -168,7 +168,7 @@ public class LazyUISampleTarget : MonoBehaviour
 
     private string testString = "test";
     /// <summary>
-    /// •¶š—ñŒ^
+    /// æ–‡å­—åˆ—å‹
     /// </summary>
     public string TestString
     {

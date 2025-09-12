@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEngine;
@@ -7,8 +7,8 @@ using UnityEditor;
 namespace LazyUI
 {
     /// <summary>
-    /// string‚ÌSerializeField‚Å‚ÍƒfƒtƒHƒ‹ƒg‚Å‚Í'\'ƒGƒXƒP[ƒv‚ª‹z‚¢‚Ü‚ê‚ÄŒë“®ì‚ğ‹N‚±–‚ªBB
-    /// PropertyField‚Å•`‰æ‚·‚ê‚ÎƒGƒXƒP[ƒv‚ğˆ—‚µ‚È‚¢‚æ‚¤‚È‚Ì‚ÅƒAƒgƒŠƒrƒ…[ƒg‚ğì‚Á‚Ä‚İ‚½B
+    /// stringã®SerializeFieldã§ã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯'\'ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ãŒå¸ã„è¾¼ã¾ã‚Œã¦èª¤å‹•ä½œã‚’èµ·ã“äº‹ãŒã€‚ã€‚
+    /// PropertyFieldã§æç”»ã™ã‚Œã°ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã‚’å‡¦ç†ã—ãªã„ã‚ˆã†ãªã®ã§ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’ä½œã£ã¦ã¿ãŸã€‚
     /// </summary>
     [CustomPropertyDrawer(typeof(RawStringAttribute))]
     public class RawStringDrawer : PropertyDrawer

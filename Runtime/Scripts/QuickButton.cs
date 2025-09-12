@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 namespace LazyUI
 {
     /// <summary>
-    /// button‰Ÿ‰º‚Å”½‰‚·‚éƒ{ƒ^ƒ“AƒŠƒs[ƒg‚ ‚è
+    /// buttonæŠ¼ä¸‹ã§åå¿œã™ã‚‹ãƒœã‚¿ãƒ³ã€ãƒªãƒ”ãƒ¼ãƒˆã‚ã‚Š
     /// </summary>
     [RequireComponent(typeof(RectTransform))]
     public class QuickButton : Selectable, ISubmitHandler

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 namespace LazyUI
 {
     /// <summary>
-    /// Dropdown‚İ‚½‚¢‚È‚ÌBw’èƒIƒvƒVƒ‡ƒ“‚©‚çˆê‚Â‚ğ‘I‘ğ‚Å‚«‚éB
+    /// Dropdownã¿ãŸã„ãªã®ã€‚æŒ‡å®šã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‹ã‚‰ä¸€ã¤ã‚’é¸æŠã§ãã‚‹ã€‚
     /// </summary>
     [RequireComponent(typeof(RectTransform))]
     public class Selector : Selectable, IBeginDragHandler, IDragHandler, IEndDragHandler, IScrollHandler

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +6,7 @@ using UnityEngine;
 namespace LazyUI
 {
     /// <summary>
-    /// Bool,Int32,EnumŒ^ƒvƒƒpƒeƒB‚Ìƒ[ƒ^ƒŠ[(‘½ƒXƒe[ƒg)ƒXƒCƒbƒ`
+    /// Bool,Int32,Enumå‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®ãƒ­ãƒ¼ã‚¿ãƒªãƒ¼(å¤šã‚¹ãƒ†ãƒ¼ãƒˆ)ã‚¹ã‚¤ãƒƒãƒ
     /// </summary>
     [RequireComponent(typeof(RectTransform))]
     public class PropertyRotarySwitch : RotarySwitch

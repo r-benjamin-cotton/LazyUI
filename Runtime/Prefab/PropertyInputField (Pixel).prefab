@@ -120,7 +120,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -308534748, guid: 723f8578ab14d344bb3a3ebd7b33d3c3, type: 3}
+  m_Sprite: {fileID: -308534748, guid: e99356a73dd4083469b15ada012c2d4f, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -319,9 +319,9 @@ MonoBehaviour:
   sheets:
   - wrapMode: 1
     action:
-    - sprite: {fileID: -1264546622, guid: f39cf2949484f224e86e30a3e9a301a1, type: 3}
+    - sprite: {fileID: -1264546622, guid: 36e9de21285a12849abf085aafc5d70b, type: 3}
       duration: 0.5
-    - sprite: {fileID: 37529381, guid: 723f8578ab14d344bb3a3ebd7b33d3c3, type: 3}
+    - sprite: {fileID: -833129081, guid: 36e9de21285a12849abf085aafc5d70b, type: 3}
       duration: 0.5
 --- !u!1 &8398524022222204288
 GameObject:

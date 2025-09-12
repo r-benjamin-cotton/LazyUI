@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -8,7 +8,7 @@ using UnityEngine;
 namespace LazyUI
 {
     /// <summary>
-    /// UnityƒGƒfƒBƒ^‚Ìƒƒjƒ…[—v‘f
+    /// Unityã‚¨ãƒ‡ã‚£ã‚¿ã®ãƒ¡ãƒ‹ãƒ¥ãƒ¼è¦ç´ 
     /// </summary>
     public static class LazyUIMenu
     {

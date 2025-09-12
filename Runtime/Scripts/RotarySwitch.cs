@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 namespace LazyUI
 {
     /// <summary>
-    /// ƒ[ƒ^ƒŠ[(‡‘—‚è‘½ƒXƒe[ƒg)ƒXƒCƒbƒ`
+    /// ãƒ­ãƒ¼ã‚¿ãƒªãƒ¼(é †é€ã‚Šå¤šã‚¹ãƒ†ãƒ¼ãƒˆ)ã‚¹ã‚¤ãƒƒãƒ
     /// </summary>
     [RequireComponent(typeof(RectTransform))]
     public class RotarySwitch : Selectable, IScrollHandler, ISubmitHandler

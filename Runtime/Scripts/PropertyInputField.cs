@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +7,7 @@ using TMPro;
 namespace LazyUI
 {
     /// <summary>
-    /// TMP_InputField‚ğƒvƒƒpƒeƒB‚ÉÚ‘±
+    /// TMP_InputFieldã‚’ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«æ¥ç¶š
     /// </summary>
     [RequireComponent(typeof(RectTransform))]
     public class PropertyInputField : MonoBehaviour

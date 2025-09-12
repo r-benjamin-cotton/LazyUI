@@ -86,7 +86,7 @@ float2 FWidth(float2 uv, float4 texelSize)
     return float2(wx, wy);
 }
 #elif 1
-// –ÊÏ‚Ì•½•ûª‚Å„’è
+// é¢ç©ã®å¹³æ–¹æ ¹ã§æ¨å®š
 float FWidth(float2 uv, float4 texelSize)
 {
     float2 ux = uv * texelSize.zw;
@@ -97,7 +97,7 @@ float FWidth(float2 uv, float4 texelSize)
     return ll;
 }
 #else
-// c‰¡‚ÅŠg‘å—¦‚Ì¬‚³‚¢‚Ù‚¤‚ğÌ—p
+// ç¸¦æ¨ªã§æ‹¡å¤§ç‡ã®å°ã•ã„ã»ã†ã‚’æ¡ç”¨
 float FWidth(float2 uv, float4 texelSize)
 {
     float2 ux = uv * texelSize.zw;

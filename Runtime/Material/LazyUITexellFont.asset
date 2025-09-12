@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f2494f1efdbbf408eb9efc767616a0, type: 3}
   m_Name: LazyUITexellFont
   m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: f39cf2949484f224e86e30a3e9a301a1, type: 3}
+  texture: {fileID: 2800000, guid: 36e9de21285a12849abf085aafc5d70b, type: 3}
   dwidth: 10
   dheight: 10
   originX: 1

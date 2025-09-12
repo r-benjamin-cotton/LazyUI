@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +6,7 @@ using UnityEngine;
 namespace LazyUI
 {
     /// <summary>
-    /// w’èƒvƒƒpƒeƒB‚ğ•¶š—ñ‚É‚µ‚ÄTextMeshPro‚Ælazytext‚ÖƒZƒbƒg
+    /// æŒ‡å®šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’æ–‡å­—åˆ—ã«ã—ã¦TextMeshProã¨lazytextã¸ã‚»ãƒƒãƒˆ
     /// </summary>
     public class PropertyText : MonoBehaviour
     {

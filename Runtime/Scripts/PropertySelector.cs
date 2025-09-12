@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +6,7 @@ using UnityEngine;
 namespace LazyUI
 {
     /// <summary>
-    /// Bool‚Ü‚½‚ÍEnumŒ^ƒvƒƒpƒeƒB‚ğ‘I‘ğ
+    /// Boolã¾ãŸã¯Enumå‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’é¸æŠ
     /// </summary>
     [RequireComponent(typeof(RectTransform))]
     public class PropertySelector : Selector

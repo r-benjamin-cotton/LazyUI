@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace LazyUI
 {
     /// <summary>
-    /// âΩÇ‡ÇµÇ»Ç¢RaycastTarget
+    /// ‰Ωï„ÇÇ„Åó„Å™„ÅÑRaycastTarget
     /// </summary>
     [RequireComponent(typeof(CanvasRenderer))]
     public sealed class RaycastTarget : Graphic

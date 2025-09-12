@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -12,9 +12,9 @@ using UnityEngine.EventSystems;
 namespace LazyUI
 {
     /// <summary>
-    /// LazyText—p‚ÌŠÈˆÕ‚Èinputfield
-    /// tmp_inputfield‚ğQl‚É—‚½Š´‚¶‚Édã‚°‚Ä‚İ‚½‚¯‚ê‚Çˆá‚¢‚à‚ ‚é‚Ì‚Å’ˆÓB
-    /// ƒ‚ƒoƒCƒ‹‚Í–¢ŒŸØ
+    /// LazyTextç”¨ã®ç°¡æ˜“ãªinputfield
+    /// tmp_inputfieldã‚’å‚è€ƒã«ä¼¼ãŸæ„Ÿã˜ã«ä»•ä¸Šã’ã¦ã¿ãŸã‘ã‚Œã©é•ã„ã‚‚ã‚ã‚‹ã®ã§æ³¨æ„ã€‚
+    /// ãƒ¢ãƒã‚¤ãƒ«ã¯æœªæ¤œè¨¼
     /// </summary>
     [AddComponentMenu("LazyUI/LazyInputField", 11)]
     public class LazyInputField : Selectable,

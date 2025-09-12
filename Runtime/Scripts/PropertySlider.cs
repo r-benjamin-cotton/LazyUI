@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 namespace LazyUI
 {
     /// <summary>
-    /// float‚à‚µ‚­‚Íint‚ÌƒvƒƒpƒeƒB‚ğ‘€ì‚·‚éƒXƒ‰ƒCƒ_[
+    /// floatã‚‚ã—ãã¯intã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’æ“ä½œã™ã‚‹ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼
     /// </summary>
     [RequireComponent(typeof(RectTransform))]
     public class PropertySlider : Selectable, IInitializePotentialDragHandler, IBeginDragHandler, IDragHandler

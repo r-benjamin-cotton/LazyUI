@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 namespace LazyUI
 {
     /// <summary>
-    /// UI‚Æ‚ÌÕ“Ë”»’è
+    /// UIã¨ã®è¡çªåˆ¤å®š
     /// </summary>
     public static class UIRaycaster
     {
@@ -16,9 +16,9 @@ namespace LazyUI
         private static int previousFrameCount = 0;
 
         /// <summary>
-        /// ƒXƒNƒŠ[ƒ“ˆÊ’u‚ÌUIƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·
-        /// “¯‚¶ƒtƒŒ[ƒ€‚Å“¯‚¶screenPosition‚Ìê‡ƒLƒƒƒbƒVƒ…‚µ‚½“à—e‚ğ•Ï‚¦‚·B
-        /// ƒŠƒXƒg‚Íg‚¢‚Ü‚í‚µ‚È‚Ì‚Å’ˆÓ
+        /// ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ä½ç½®ã®UIã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™
+        /// åŒã˜ãƒ•ãƒ¬ãƒ¼ãƒ ã§åŒã˜screenPositionã®å ´åˆã‚­ãƒ£ãƒƒã‚·ãƒ¥ã—ãŸå†…å®¹ã‚’å¤‰ãˆã™ã€‚
+        /// ãƒªã‚¹ãƒˆã¯ä½¿ã„ã¾ã‚ã—ãªã®ã§æ³¨æ„
         /// </summary>
         /// <param name="screenPosition"></param>
         /// <returns></returns>

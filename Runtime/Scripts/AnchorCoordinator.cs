@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +9,11 @@ namespace LazyUI
     using static VectorUtil;
 
     /// <summary>
-    /// �EanchorZero:AnchoredPosition���O�ɂȂ�悤AnchorMinMax���ړ�
-    /// �EautoPivotX,Y:�s�{�b�g�_���A���J�[�ʒu�̔䗦�ɍ��킹��
-    /// �EkeepAspect:�e��RectTransform����͂ݏo���Ȃ��悤�䗦��ۂ��ăX�P�[�����O����
-    /// �EadjustPixel:�����̓_���X�N���[�����W�n�ł̃s�N�Z�����E�ɋ߂Â��遦canvas��pixelPerfect�Ƃ͑����������ۂ�
-    /// pixelPerfect�ł��܂������Ȃ������̂�anchor�Œ������Ă݂��i��B�B
+    /// ・anchorZero:AnchoredPositionが０になるようAnchorMinMaxを移動
+    /// ・autoPivotX,Y:ピボット点をアンカー位置の比率に合わせる
+    /// ・keepAspect:親のRectTransformからはみ出さないよう比率を保ってスケーリングする
+    /// ・adjustPixel:左下の点をスクリーン座標系でのピクセル境界に近づける※canvasのpixelPerfectとは相性悪いっぽい
+    /// pixelPerfectでうまくいかなかったのでanchorで調整してみた（謎。。
     /// </summary>
     [ExecuteAlways]
     [RequireComponent(typeof(RectTransform))]
@@ -155,7 +155,7 @@ namespace LazyUI
             var fp = Round(sp);
             var dt = Abs(fp - sp);
             var ap = sp;
-            var threshold = 1.0f / 256.0f;// �덷���c��̂�臒l�ݒ�
+            var threshold = 1.0f / 256.0f;// 誤差が残るので閾値設定
             var d = false;
             if (dt.x >= threshold)
             {
@@ -292,8 +292,8 @@ namespace LazyUI
             {
                 return;
             }
-            // editor�Ńh���b�O���ɃA���J�[�̕␳��}�����邽�߂̔���B�������B
-            // ��������������i���Ȃ��̂��ȁH
+            // editorでドラッグ中にアンカーの補正を抑制するための判定。怪しい。
+            // もう少し何か手段がないのかな？
             var et = Event.current.type;
             if (et == EventType.MouseDown)
             {
