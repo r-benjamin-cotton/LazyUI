@@ -4,29 +4,29 @@ using UnityEngine;
 
 namespace LazyUI
 {
-    public static class RangeExtensions
+    public static class LazyRangeExtensions
     {
-        public static bool Valid(this Range<int> range)
+        public static bool Valid(this LazyRange<int> range)
         {
             return range.MinValue <= range.MaxValue;
         }
-        public static bool Valid(this Range<float> range)
+        public static bool Valid(this LazyRange<float> range)
         {
             return range.MinValue <= range.MaxValue;
         }
-        public static Range<float> Validate(this Range<float> range)
+        public static LazyRange<float> Validate(this LazyRange<float> range)
         {
             var min = Mathf.Min(range.MinValue, range.MaxValue);
             var max = Mathf.Max(range.MinValue, range.MaxValue);
-            return new Range<float>(min, max);
+            return new LazyRange<float>(min, max);
         }
-        public static Range<int> Validate(this Range<int> range)
+        public static LazyRange<int> Validate(this LazyRange<int> range)
         {
             var min = Mathf.Min(range.MinValue, range.MaxValue);
             var max = Mathf.Max(range.MinValue, range.MaxValue);
-            return new Range<int>(min, max);
+            return new LazyRange<int>(min, max);
         }
-        public static int Clamp(this Range<int> range, int value)
+        public static int Clamp(this LazyRange<int> range, int value)
         {
             if (range.MinValue > range.MaxValue)
             {
@@ -34,7 +34,7 @@ namespace LazyUI
             }
             return Math.Clamp(value, range.MinValue, range.MaxValue);
         }
-        public static float Clamp(this Range<float> range, float value)
+        public static float Clamp(this LazyRange<float> range, float value)
         {
             if (range.MinValue > range.MaxValue)
             {
@@ -42,20 +42,20 @@ namespace LazyUI
             }
             return Math.Clamp(value, range.MinValue, range.MaxValue);
         }
-        public static Range<int> Clamp(this Range<int> range, Range<int> r0)
+        public static LazyRange<int> Clamp(this LazyRange<int> range, LazyRange<int> r0)
         {
             var min = range.Clamp(r0.MinValue);
             var max = range.Clamp(r0.MaxValue);
-            return new Range<int>(min, max);
+            return new LazyRange<int>(min, max);
         }
-        public static Range<float> Clamp(this Range<float> range, Range<float> r0)
+        public static LazyRange<float> Clamp(this LazyRange<float> range, LazyRange<float> r0)
         {
             var min = range.Clamp(r0.MinValue);
             var max = range.Clamp(r0.MaxValue);
-            return new Range<float>(min, max);
+            return new LazyRange<float>(min, max);
         }
 
-        public static int Repat(this Range<int> range, int value)
+        public static int Repat(this LazyRange<int> range, int value)
         {
             var d = range.MaxValue - range.MinValue;
             if (d < 0)
@@ -73,7 +73,7 @@ namespace LazyUI
             }
             return f;
         }
-        public static float Repeat(this Range<float> range, float value)
+        public static float Repeat(this LazyRange<float> range, float value)
         {
             var d = range.MaxValue - range.MinValue;
             if (d < 0)
@@ -91,17 +91,17 @@ namespace LazyUI
             }
             return f;
         }
-        public static Range<int> Repeat(this Range<int> range, Range<int> r0)
+        public static LazyRange<int> Repeat(this LazyRange<int> range, LazyRange<int> r0)
         {
             var min = range.Repat(r0.MinValue);
             var max = range.Repat(r0.MaxValue);
-            return new Range<int>(min, max);
+            return new LazyRange<int>(min, max);
         }
-        public static Range<float> Repeat(this Range<float> range, Range<float> r0)
+        public static LazyRange<float> Repeat(this LazyRange<float> range, LazyRange<float> r0)
         {
             var min = range.Repeat(r0.MinValue);
             var max = range.Repeat(r0.MaxValue);
-            return new Range<float>(min, max);
+            return new LazyRange<float>(min, max);
         }
     }
     /// <summary>
@@ -109,13 +109,13 @@ namespace LazyUI
     /// </summary>
     /// <typeparam name="T"></typeparam>
     [Serializable]
-    public readonly struct Range<T> : IEquatable<Range<T>> where T : struct, IEquatable<T>
+    public readonly struct LazyRange<T> : IEquatable<LazyRange<T>> where T : struct, IEquatable<T>
     {
         private readonly T min;
         private readonly T max;
         public readonly T MinValue => min;
         public readonly T MaxValue => max;
-        public Range(T min, T max)
+        public LazyRange(T min, T max)
         {
             this.min = min;
             this.max = max;
@@ -164,22 +164,22 @@ namespace LazyUI
             return value;
         }
 #endif
-        public static bool operator ==(Range<T> v0, Range<T> v1)
+        public static bool operator ==(LazyRange<T> v0, LazyRange<T> v1)
         {
             return v0.Equals(v1);
         }
-        public static bool operator !=(Range<T> v0, Range<T> v1)
+        public static bool operator !=(LazyRange<T> v0, LazyRange<T> v1)
         {
             return !v0.Equals(v1);
         }
 
-        public readonly bool Equals(Range<T> other)
+        public readonly bool Equals(LazyRange<T> other)
         {
             return min.Equals(other.min) && max.Equals(other.max);
         }
         public readonly override bool Equals(object obj)
         {
-            if (obj is Range<T> range)
+            if (obj is LazyRange<T> range)
             {
                 return Equals(range);
             }
@@ -210,7 +210,7 @@ namespace LazyUI
             }
             return tt;
         }
-        public static bool TryParse(string value, out Range<float> result)
+        public static bool TryParse(string value, out LazyRange<float> result)
         {
             result = default;
             var tt = Split(value);
@@ -226,10 +226,10 @@ namespace LazyUI
             {
                 return false;
             }
-            result = new Range<float>(v0, v1);
+            result = new LazyRange<float>(v0, v1);
             return true;
         }
-        public static bool TryParse(string value, out Range<int> result)
+        public static bool TryParse(string value, out LazyRange<int> result)
         {
             result = default;
             var tt = Split(value);
@@ -245,7 +245,7 @@ namespace LazyUI
             {
                 return false;
             }
-            result = new Range<int>(v0, v1);
+            result = new LazyRange<int>(v0, v1);
             return true;
         }
     }

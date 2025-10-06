@@ -9,7 +9,7 @@ namespace LazyUI
     /// (通常は参照型の.Equalsは参照比較なので使わなくても大丈夫だけれど)
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class ReferenceEqualsComparer<T> : IEqualityComparer<T>, IEqualityComparer where T : class
+    public class LazyReferenceEqualsComparer<T> : IEqualityComparer<T>, IEqualityComparer where T : class
     {
         public bool Equals(T x, T y)
         {
@@ -27,6 +27,6 @@ namespace LazyUI
         {
             return System.Runtime.CompilerServices.RuntimeHelpers.GetHashCode(obj);
         }
-        public static ReferenceEqualsComparer<T> Default { get; private set; } = new ReferenceEqualsComparer<T>();
+        public static LazyReferenceEqualsComparer<T> Default { get; private set; } = new LazyReferenceEqualsComparer<T>();
     }
 }

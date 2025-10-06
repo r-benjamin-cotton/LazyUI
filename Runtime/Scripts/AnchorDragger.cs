@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace LazyUI
 {
-    using static VectorUtil;
+    using static LazyVectorUtil;
 
     /// <summary>
     /// AnchorCoordinatroにDrag機能を追加

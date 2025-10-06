@@ -8,7 +8,7 @@ namespace LazyUI
     /// <summary>
     /// UIとの衝突判定
     /// </summary>
-    public static class UIRaycaster
+    public static class LazyUIRaycaster
     {
         private static readonly List<RaycastResult> raycastResults = new List<RaycastResult>();
         private static EventSystem eventSystemCurrent = null;
@@ -22,7 +22,7 @@ namespace LazyUI
         /// </summary>
         /// <param name="screenPosition"></param>
         /// <returns></returns>
-        public static ReadOnlyList<RaycastResult> RaycastAll(Vector2 screenPosition)
+        public static LazyReadOnlyList<RaycastResult> RaycastAll(Vector2 screenPosition)
         {
             var eventSystem = EventSystem.current;
             if (!ReferenceEquals(eventSystemCurrent, eventSystem))

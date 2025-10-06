@@ -63,7 +63,7 @@ namespace LazyUI
         [SerializeField]
         private bool overflow = true;
 
-        [SerializeField, TextArea, RawString]
+        [SerializeField, TextArea, LazyRawString]
         private string text = "";
 
         [SerializeField]
@@ -74,7 +74,7 @@ namespace LazyUI
         private bool parseEscapeCharacters = true;
 
         [SerializeField]
-        private Margin margin = new(0, 0, 0, 0);
+        private LazyMargin margin = new(0, 0, 0, 0);
 
         private struct Characteristics
         {
@@ -380,7 +380,7 @@ namespace LazyUI
                 DirtyText();
             }
         }
-        public Margin Margin
+        public LazyMargin Margin
         {
             get
             {

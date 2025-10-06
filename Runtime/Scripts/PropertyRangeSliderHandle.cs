@@ -28,7 +28,7 @@ namespace LazyUI
         [SerializeField]
         private HandleType handle = HandleType.LowerHandle;
 
-        private Range<float> currentValue = default;
+        private LazyRange<float> currentValue = default;
 
         private bool started = false;
         private bool active = false;
@@ -95,7 +95,7 @@ namespace LazyUI
             {
                 max += step;
             }
-            owner.Value = new Range<float>(min, max);
+            owner.Value = new LazyRange<float>(min, max);
             UpdateState(false);
         }
         private void UpdateInput()
@@ -168,12 +168,12 @@ namespace LazyUI
                     if (handle == HandleType.LowerHandle)
                     {
                         var upper = Mathf.Max(nv.MaxValue, vv);
-                        owner.NormalizedValue = new Range<float>(vv, upper);
+                        owner.NormalizedValue = new LazyRange<float>(vv, upper);
                     }
                     else
                     {
                         var lower = Mathf.Min(nv.MinValue, vv);
-                        owner.NormalizedValue = new Range<float>(lower, vv);
+                        owner.NormalizedValue = new LazyRange<float>(lower, vv);
                     }
                 }
             }

@@ -95,7 +95,7 @@ namespace LazyUI
                         }
                         select = v ? 1 : 0;
                         {
-                            range = new Range<int>(0, 1);
+                            range = new LazyRange<int>(0, 1);
                         }
                     }
                     break;
@@ -106,7 +106,7 @@ namespace LazyUI
                             return;
                         }
                         select = v;
-                        if (targetProperty.TryGetRange(out Range<int> r0) && r0.Valid())
+                        if (targetProperty.TryGetRange(out LazyRange<int> r0) && r0.Valid())
                         {
                             range = r0;
                         }
@@ -121,7 +121,7 @@ namespace LazyUI
                         }
                         select = idx;
                         {
-                            range = new Range<int>(0, targetProperty.GetEnumValueCount() - 1);
+                            range = new LazyRange<int>(0, targetProperty.GetEnumValueCount() - 1);
                         }
                     }
                     break;

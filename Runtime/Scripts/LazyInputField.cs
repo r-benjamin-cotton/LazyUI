@@ -59,7 +59,7 @@ namespace LazyUI
         [SerializeField]
         private LazyText textComponent = null;
 
-        [SerializeField, TextArea, RawString]
+        [SerializeField, TextArea, LazyRawString]
         private string text = "";
 
         [SerializeField]

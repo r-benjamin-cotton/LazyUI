@@ -38,7 +38,7 @@ namespace LazyUI
         [SerializeField]
         private PropertySpinControlEvent onValueChanged = new();
 
-        private Range<float> range = default;
+        private LazyRange<float> range = default;
         private float step = 0;
 
         private bool active = false;
@@ -152,10 +152,10 @@ namespace LazyUI
         private void UpdateValue()
         {
             {
-                range = new Range<float>(minValue, maxValue);
+                range = new LazyRange<float>(minValue, maxValue);
                 if (wholeNumbers)
                 {
-                    range = new Range<float>(Mathf.Round(range.MinValue), Mathf.Round(range.MaxValue));
+                    range = new LazyRange<float>(Mathf.Round(range.MinValue), Mathf.Round(range.MaxValue));
                 }
                 UpdateStep();
             }
@@ -178,9 +178,9 @@ namespace LazyUI
                             return;
                         }
                         value = vv;
-                        if (targetProperty.TryGetRange(out Range<int> r0) && r0.Valid())
+                        if (targetProperty.TryGetRange(out LazyRange<int> r0) && r0.Valid())
                         {
-                            range = new Range<float>(r0.MinValue, r0.MaxValue);
+                            range = new LazyRange<float>(r0.MinValue, r0.MaxValue);
                             UpdateStep();
                         }
                     }
@@ -192,12 +192,12 @@ namespace LazyUI
                             return;
                         }
                         value = vv;
-                        if (targetProperty.TryGetRange(out Range<float> r0) && r0.Valid())
+                        if (targetProperty.TryGetRange(out LazyRange<float> r0) && r0.Valid())
                         {
                             range = r0;
                             if (wholeNumbers)
                             {
-                                range = new Range<float>(Mathf.Ceil(range.MinValue), Mathf.Floor(range.MaxValue));
+                                range = new LazyRange<float>(Mathf.Ceil(range.MinValue), Mathf.Floor(range.MaxValue));
                             }
                             UpdateStep();
                         }
@@ -211,7 +211,7 @@ namespace LazyUI
                         }
                         value = vv ? 1 : 0;
                         {
-                            range = new Range<float>(0, 1);
+                            range = new LazyRange<float>(0, 1);
                             step = 1;
                         }
                     }
@@ -225,7 +225,7 @@ namespace LazyUI
                         }
                         value = idx;
                         {
-                            range = new Range<float>(0, targetProperty.GetEnumValueCount() - 1);
+                            range = new LazyRange<float>(0, targetProperty.GetEnumValueCount() - 1);
                             step = 1;
                         }
                     }

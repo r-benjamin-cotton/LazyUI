@@ -69,7 +69,7 @@ namespace LazyUI
         private PropertySliderEvent onValueChanged = new();
 
         private DirectionType currentDirection = DirectionType.LeftToRight;
-        private Range<float> range = default;
+        private LazyRange<float> range = default;
 
         private bool started = false;
         private bool active = false;
@@ -198,10 +198,10 @@ namespace LazyUI
         private void UpdateValue()
         {
             text = "";
-            range = new Range<float>(minValue, maxValue);
+            range = new LazyRange<float>(minValue, maxValue);
             if (wholeNumbers)
             {
-                range = new Range<float>(Mathf.Ceil(range.MinValue), Mathf.Floor(range.MaxValue));
+                range = new LazyRange<float>(Mathf.Ceil(range.MinValue), Mathf.Floor(range.MaxValue));
             }
             active = false;
             if (!IsActive())
@@ -223,9 +223,9 @@ namespace LazyUI
                         }
                         value = vv;
                         text = vv.ToString(textFormat);
-                        if (targetProperty.TryGetRange(out Range<int> r0) && r0.Valid())
+                        if (targetProperty.TryGetRange(out LazyRange<int> r0) && r0.Valid())
                         {
-                            range = new Range<float>(r0.MinValue, r0.MaxValue);
+                            range = new LazyRange<float>(r0.MinValue, r0.MaxValue);
                         }
                     }
                     break;
@@ -237,13 +237,13 @@ namespace LazyUI
                         }
                         value = vv;
                         text = vv.ToString(textFormat);
-                        if (targetProperty.TryGetRange(out Range<float> r0) && r0.Valid())
+                        if (targetProperty.TryGetRange(out LazyRange<float> r0) && r0.Valid())
                         {
                             range = r0;
                         }
                         if (wholeNumbers)
                         {
-                            range = new Range<float>(Mathf.Ceil(range.MinValue), Mathf.Floor(range.MaxValue));
+                            range = new LazyRange<float>(Mathf.Ceil(range.MinValue), Mathf.Floor(range.MaxValue));
                         }
                     }
                     break;
@@ -256,7 +256,7 @@ namespace LazyUI
                         value = vv ? 1 : 0;
                         text = vv.ToString();
                         {
-                            range = new Range<float>(0, 1);
+                            range = new LazyRange<float>(0, 1);
                         }
                     }
                     break;
@@ -270,7 +270,7 @@ namespace LazyUI
                         value = idx;
                         text = targetProperty.GetValue()?.ToString();
                         {
-                            range = new Range<float>(0, targetProperty.GetEnumValueCount() - 1);
+                            range = new LazyRange<float>(0, targetProperty.GetEnumValueCount() - 1);
                         }
                     }
                     break;

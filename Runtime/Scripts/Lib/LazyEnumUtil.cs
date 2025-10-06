@@ -7,7 +7,7 @@ namespace LazyUI
     /// <summary>
     /// Enum型を楽に使うためのユーティリティ
     /// </summary>
-    public static class EnumUtil
+    public static class LazyEnumUtil
     {
         /// <summary>
         /// Enumからintへ変換

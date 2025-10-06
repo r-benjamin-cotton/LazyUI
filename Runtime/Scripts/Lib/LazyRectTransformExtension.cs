@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LazyUI
 {
-    public static class RectTransformExtension
+    public static class LazyRectTransformExtension
     {
         public static Vector2 Transform(this RectTransform from, Vector2 pos, RectTransform to)
         {

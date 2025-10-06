@@ -95,7 +95,7 @@ namespace LazyUI
         [SerializeField]
         private string propertyValue;
 
-        private static readonly ReadOnlyDictionary<Type, PropertyValueType> typePropertyValueTypeMap = new(new Dictionary<Type, PropertyValueType>()
+        private static readonly LazyReadOnlyDictionary<Type, PropertyValueType> typePropertyValueTypeMap = new(new Dictionary<Type, PropertyValueType>()
         {
             { typeof(bool), PropertyValueType.Boolean },
             { typeof(byte), PropertyValueType.Byte },
@@ -115,10 +115,10 @@ namespace LazyUI
             { typeof(Vector4), PropertyValueType.Vector4 },
             { typeof(Quaternion), PropertyValueType.Quaternion },
             { typeof(Color), PropertyValueType.Color },
-            { typeof(Range<int>), PropertyValueType.IntRange },
-            { typeof(Range<float>), PropertyValueType.FloatRange },
+            { typeof(LazyRange<int>), PropertyValueType.IntRange },
+            { typeof(LazyRange<float>), PropertyValueType.FloatRange },
         });
-        private static readonly ReadOnlyDictionary<PropertyValueType, Type> propertyValueTypeTypeMap = new(new Dictionary<PropertyValueType, Type>()
+        private static readonly LazyReadOnlyDictionary<PropertyValueType, Type> propertyValueTypeTypeMap = new(new Dictionary<PropertyValueType, Type>()
         {
             { PropertyValueType.Invalid, null },
             { PropertyValueType.Boolean, typeof(bool) },
@@ -140,7 +140,7 @@ namespace LazyUI
             { PropertyValueType.Quaternion, typeof(Quaternion) },
             { PropertyValueType.Color, typeof(Color) },
         });
-        private static readonly ReadOnlyDictionary<PropertyValueType, Type> propertyValueTypeSetterTypeMap = new(new Dictionary<PropertyValueType, Type>()
+        private static readonly LazyReadOnlyDictionary<PropertyValueType, Type> propertyValueTypeSetterTypeMap = new(new Dictionary<PropertyValueType, Type>()
         {
             { PropertyValueType.Invalid, null },
             { PropertyValueType.Boolean, typeof(Action<bool>) },
@@ -162,7 +162,7 @@ namespace LazyUI
             { PropertyValueType.Quaternion, typeof(Action<Quaternion>) },
             { PropertyValueType.Color, typeof(Action<Color>) },
         });
-        private static readonly ReadOnlyDictionary<PropertyValueType, Type> propertyValueTypeGetterTypeMap = new(new Dictionary<PropertyValueType, Type>()
+        private static readonly LazyReadOnlyDictionary<PropertyValueType, Type> propertyValueTypeGetterTypeMap = new(new Dictionary<PropertyValueType, Type>()
         {
             { PropertyValueType.Invalid, null },
             { PropertyValueType.Boolean, typeof(Func<bool>) },
@@ -351,7 +351,7 @@ namespace LazyUI
                         {
                             if ((vmin is int v0) && (vmax is int v1))
                             {
-                                return new Range<int>(v0, v1);
+                                return new LazyRange<int>(v0, v1);
                             }
                         }
                         break;
@@ -359,7 +359,7 @@ namespace LazyUI
                         {
                             if ((vmin is float v0) && (vmax is float v1))
                             {
-                                return new Range<float>(v0, v1);
+                                return new LazyRange<float>(v0, v1);
                             }
                         }
                         break;
@@ -448,7 +448,7 @@ namespace LazyUI
                         {
                             if ((vmin is int v0) && (vmax is int v1))
                             {
-                                var vt = new Range<int>(v0, v1);
+                                var vt = new LazyRange<int>(v0, v1);
                                 return TryGetValue(out value, vt);
                             }
                         }
@@ -457,7 +457,7 @@ namespace LazyUI
                         {
                             if ((vmin is float v0) && (vmax is float v1))
                             {
-                                var vt = new Range<float>(v0, v1);
+                                var vt = new LazyRange<float>(v0, v1);
                                 return TryGetValue(out value, vt);
                             }
                         }
@@ -476,7 +476,7 @@ namespace LazyUI
             }
             return val;
         }
-        public bool SetValue<T>(Range<T> value) where T : struct, IEquatable<T>
+        public bool SetValue<T>(LazyRange<T> value) where T : struct, IEquatable<T>
         {
             if (!Validate())
             {
@@ -486,7 +486,7 @@ namespace LazyUI
             {
                 return false;
             }
-            if (_propertySetterDelegate is Action<Range<T>> setter)
+            if (_propertySetterDelegate is Action<LazyRange<T>> setter)
             {
                 setter(value);
                 return true;
@@ -496,7 +496,7 @@ namespace LazyUI
                 return SetValue((object)value);
             }
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-            if (typeof(Range<T>) != _propertyType)
+            if (typeof(LazyRange<T>) != _propertyType)
             {
                 _lastErrorMessage = $"SetValue<{typeof(T)}>(): Type mismatch <{_propertyType}>";
                 return false;
@@ -782,14 +782,14 @@ namespace LazyUI
                     break;
             }
         }
-        public bool TryGetRange<T>(out Range<T> range) where T : struct, IEquatable<T>
+        public bool TryGetRange<T>(out LazyRange<T> range) where T : struct, IEquatable<T>
         {
             range = default;
             if (!ValidatePropertyRangeInfo())
             {
                 return false;
             }
-            if (_propertyRangeGetterDelegate is Func<Range<T>> getter)
+            if (_propertyRangeGetterDelegate is Func<LazyRange<T>> getter)
             {
                 range = getter();
                 return true;
@@ -807,7 +807,7 @@ namespace LazyUI
                 var vmax = _elementFieldInfo.GetValue(maxVal);
                 if ((vmin is T v0) && (vmax is T v1))
                 {
-                    range = new Range<T>(v0, v1);
+                    range = new LazyRange<T>(v0, v1);
                     return true;
                 }
             }
@@ -819,13 +819,13 @@ namespace LazyUI
                 var vmax = _elementPropertyInfo.GetValue(maxVal);
                 if ((vmin is T v0) && (vmax is T v1))
                 {
-                    range = new Range<T>(v0, v1);
+                    range = new LazyRange<T>(v0, v1);
                     return true;
                 }
             }
             else
             {
-                if (val is Range<T> r)
+                if (val is LazyRange<T> r)
                 {
                     range = r;
                     return true;
@@ -1100,7 +1100,7 @@ namespace LazyUI
                     break;
                 case PropertyValueType.IntRange:
                     {
-                        if (!TryGetValue(out Range<int> v0) || !TryGetSpecificValue(out Range<int> v1))
+                        if (!TryGetValue(out LazyRange<int> v0) || !TryGetSpecificValue(out LazyRange<int> v1))
                         {
                             return false;
                         }
@@ -1109,7 +1109,7 @@ namespace LazyUI
                     break;
                 case PropertyValueType.FloatRange:
                     {
-                        if (!TryGetValue(out Range<float> v0) || !TryGetSpecificValue(out Range<float> v1))
+                        if (!TryGetValue(out LazyRange<float> v0) || !TryGetSpecificValue(out LazyRange<float> v1))
                         {
                             return false;
                         }
@@ -1280,7 +1280,7 @@ namespace LazyUI
             if (!string.IsNullOrEmpty(propertyElement))
             {
                 var pt = _propertyInfo.PropertyType;
-                if (pt.IsGenericType && pt.GetGenericTypeDefinition() == typeof(Range<>))
+                if (pt.IsGenericType && pt.GetGenericTypeDefinition() == typeof(LazyRange<>))
                 {
                     _structRange = true;
                     _propertyStructRangeMinFieldInfo = pt.GetField("min", BindingFlags.Instance | BindingFlags.NonPublic);
@@ -1306,11 +1306,11 @@ namespace LazyUI
                     var et = (_elementFieldInfo != null) ? _elementFieldInfo.FieldType : _elementPropertyInfo.PropertyType;
                     if (et == typeof(int))
                     {
-                        rt = typeof(Range<int>);
+                        rt = typeof(LazyRange<int>);
                     }
                     if (et == typeof(float))
                     {
-                        rt = typeof(Range<float>);
+                        rt = typeof(LazyRange<float>);
                     }
                     if (rt == null)
                     {
@@ -1461,7 +1461,7 @@ namespace LazyUI
                 return false;
             }
             var gt = pt.GetGenericTypeDefinition();
-            var rt = typeof(Range<>);
+            var rt = typeof(LazyRange<>);
             if (gt != rt)
             {
                 return false;
@@ -1495,7 +1495,7 @@ namespace LazyUI
                     case PropertyValueType.IntRange:
                         if (ag[0] == typeof(int))
                         {
-                            _propertyRangeGetterDelegate = Delegate.CreateDelegate(typeof(Func<Range<int>>), component, propertyRangePropertyInfo.GetGetMethod());
+                            _propertyRangeGetterDelegate = Delegate.CreateDelegate(typeof(Func<LazyRange<int>>), component, propertyRangePropertyInfo.GetGetMethod());
                             _propertyRangePropertyInfo = propertyRangePropertyInfo;
                             invalidRange = false;
                             return true;
@@ -1504,7 +1504,7 @@ namespace LazyUI
                     case PropertyValueType.FloatRange:
                         if (ag[0] == typeof(float))
                         {
-                            _propertyRangeGetterDelegate = Delegate.CreateDelegate(typeof(Func<Range<float>>), component, propertyRangePropertyInfo.GetGetMethod());
+                            _propertyRangeGetterDelegate = Delegate.CreateDelegate(typeof(Func<LazyRange<float>>), component, propertyRangePropertyInfo.GetGetMethod());
                             _propertyRangePropertyInfo = propertyRangePropertyInfo;
                             invalidRange = false;
                             return true;
@@ -2100,7 +2100,7 @@ namespace LazyUI
                     break;
                 case PropertyValueType.IntRange:
                     {
-                        if (Range<int>.TryParse(value, out Range<int> v))
+                        if (LazyRange<int>.TryParse(value, out LazyRange<int> v))
                         {
                             result = v;
                             return true;
@@ -2109,7 +2109,7 @@ namespace LazyUI
                     break;
                 case PropertyValueType.FloatRange:
                     {
-                        if (Range<float>.TryParse(value, out Range<float> v))
+                        if (LazyRange<float>.TryParse(value, out LazyRange<float> v))
                         {
                             result = v;
                             return true;
@@ -2266,13 +2266,13 @@ namespace LazyUI
                         break;
                     case PropertyValueType.IntRange:
                         {
-                            var v0 = (Range<int>)value;
+                            var v0 = (LazyRange<int>)value;
                             text = $"{{{v0.MinValue.ToString(format)},{v0.MaxValue.ToString(format)}}}";
                         }
                         break;
                     case PropertyValueType.FloatRange:
                         {
-                            var v0 = (Range<float>)value;
+                            var v0 = (LazyRange<float>)value;
                             text = $"{{{v0.MinValue.ToString(format)},{v0.MaxValue.ToString(format)}}}";
                         }
                         break;

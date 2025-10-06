@@ -48,7 +48,7 @@ namespace LazyUI
             Color,
         }
 
-        private static readonly ReadOnlyDictionary<Type, ValueType> typeValueTypeMap = new(new Dictionary<Type, ValueType>()
+        private static readonly LazyReadOnlyDictionary<Type, ValueType> typeValueTypeMap = new(new Dictionary<Type, ValueType>()
         {
             { typeof(bool), ValueType.Boolean },
             { typeof(byte), ValueType.Byte },

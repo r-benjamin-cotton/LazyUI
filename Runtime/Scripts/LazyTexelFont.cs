@@ -48,9 +48,9 @@ namespace LazyUI
         private int width = 8;
         [SerializeField]
         private int height = 8;
-        [SerializeField, RawString, TextArea]
+        [SerializeField, LazyRawString, TextArea]
         private string characters = "";
-        [SerializeField, RawString, TextArea]
+        [SerializeField, LazyRawString, TextArea]
         [Tooltip("character,reference character,originx,originy,width,height\\n")]
         private string metrics = "";
         [SerializeField, Tooltip("pixel coord")]
@@ -92,7 +92,7 @@ namespace LazyUI
         }
 
         private Dictionary<char, Metrics> metricsCache = null;
-        public ReadOnlyDictionary<char, Metrics> GetMetrics()
+        public LazyReadOnlyDictionary<char, Metrics> GetMetrics()
         {
             if (metricsCache != null)
             {

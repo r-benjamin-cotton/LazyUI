@@ -4,22 +4,22 @@ using System.Collections.Generic;
 
 namespace LazyUI
 {
-    public readonly struct ReadOnlyArray<T> : IEnumerable<T>, IEnumerable
+    public readonly struct LazyReadOnlyArray<T> : IEnumerable<T>, IEnumerable
     {
         private readonly T[] array;
-        public ReadOnlyArray(T[] array)
+        public LazyReadOnlyArray(T[] array)
         {
             this.array = array;
         }
-        public ReadOnlyArray(ReadOnlyArray<T> array)
+        public LazyReadOnlyArray(LazyReadOnlyArray<T> array)
         {
             this.array = array.array;
         }
-        public static implicit operator ReadOnlyArray<T>(T[] array)
+        public static implicit operator LazyReadOnlyArray<T>(T[] array)
         {
-            return new ReadOnlyArray<T>(array);
+            return new LazyReadOnlyArray<T>(array);
         }
-        public static implicit operator ReadOnlySpan<T>(ReadOnlyArray<T> array)
+        public static implicit operator ReadOnlySpan<T>(LazyReadOnlyArray<T> array)
         {
             return array.array;
         }

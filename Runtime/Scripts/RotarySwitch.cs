@@ -40,11 +40,11 @@ namespace LazyUI
 
         private float scrollDelta = 0;
 
-        public Range<int> Range
+        public LazyRange<int> Range
         {
             get
             {
-                return new Range<int>(minValue, Mathf.Max(minValue, maxValue));
+                return new LazyRange<int>(minValue, Mathf.Max(minValue, maxValue));
             }
             set
             {

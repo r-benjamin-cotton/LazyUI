@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace LazyUI
 {
-    public static class TransformExtension
+    public static class LazyTransformExtension
     {
         public static string GetFullPath(this Transform transform, string separator = "/")
         {

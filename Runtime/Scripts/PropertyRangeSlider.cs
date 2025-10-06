@@ -15,7 +15,7 @@ namespace LazyUI
     public class PropertyRangeSlider : Selectable, IInitializePotentialDragHandler, IBeginDragHandler, IDragHandler
     {
         [Serializable]
-        public class PropertyRangeSliderEvent : UnityEvent<Range<float>> { }
+        public class PropertyRangeSliderEvent : UnityEvent<LazyRange<float>> { }
 
         public enum DirectionType
         {
@@ -50,7 +50,7 @@ namespace LazyUI
         private bool wholeNumbers = false;
 
         [SerializeField]
-        private Range<float> value = new(0, 1);
+        private LazyRange<float> value = new(0, 1);
 
         [SerializeField]
         private TMPro.TextMeshProUGUI textMin = null;
@@ -74,7 +74,7 @@ namespace LazyUI
         [SerializeField]
         private PropertyRangeSliderEvent onValueChanged = new();
 
-        private Range<float> range = default;
+        private LazyRange<float> range = default;
 
         private bool started = false;
         private bool active = false;
@@ -86,7 +86,7 @@ namespace LazyUI
         private Vector2 dragPoint = default;
         private float dragValue = 0.0f;
 
-        public Range<float> Value
+        public LazyRange<float> Value
         {
             get
             {
@@ -98,26 +98,26 @@ namespace LazyUI
                 UpdateState(true, false);
             }
         }
-        public Range<float> NormalizedValue
+        public LazyRange<float> NormalizedValue
         {
             get
             {
                 var d = range.MaxValue - range.MinValue;
                 if (d <= 0)
                 {
-                    return new Range<float>(0, 1);
+                    return new LazyRange<float>(0, 1);
                 }
                 var id = 1.0f / d;
                 var min = Mathf.Clamp01((value.MinValue - range.MinValue) * id);
                 var max = Mathf.Clamp01((value.MaxValue - range.MinValue) * id);
-                return new Range<float>(min, max);
+                return new LazyRange<float>(min, max);
             }
             set
             {
                 var d = Mathf.Max(0, range.MaxValue - range.MinValue);
                 var min = range.MinValue + d * Mathf.Clamp01(value.MinValue);
                 var max = range.MinValue + d * Mathf.Clamp01(value.MaxValue);
-                SetValue(new Range<float>(min, max));
+                SetValue(new LazyRange<float>(min, max));
                 UpdateState(true, false);
             }
         }
@@ -151,12 +151,12 @@ namespace LazyUI
         }
         public PropertyRangeSliderEvent OnValueChanged => onValueChanged;
 
-        private Range<float> ValidateValue(Range<float> value)
+        private LazyRange<float> ValidateValue(LazyRange<float> value)
         {
             var rd = range.MaxValue - range.MinValue;
             if (rd < 0)
             {
-                return new Range<float>(0, 0);
+                return new LazyRange<float>(0, 0);
             }
             var nrw = Mathf.Max(Mathf.Min(rd, minWidth), 0);
             var valueMin = value.MinValue;
@@ -192,9 +192,9 @@ namespace LazyUI
                     }
                 }
             }
-            return new Range<float>(valueMin, valueMax);
+            return new LazyRange<float>(valueMin, valueMax);
         }
-        private void SetValue(Range<float> value)
+        private void SetValue(LazyRange<float> value)
         {
             value = ValidateValue(value);
             if (this.value == value)
@@ -217,7 +217,7 @@ namespace LazyUI
             {
                 case PropertyValueType.IntRange:
                     {
-                        targetProperty.SetValue(new Range<int>((int)value.MinValue, (int)value.MaxValue));
+                        targetProperty.SetValue(new LazyRange<int>((int)value.MinValue, (int)value.MaxValue));
                     }
                     break;
                 case PropertyValueType.FloatRange:
@@ -232,10 +232,10 @@ namespace LazyUI
         private void UpdateValue()
         {
             active = false;
-            range = new Range<float>(minValue, maxValue);
+            range = new LazyRange<float>(minValue, maxValue);
             if (wholeNumbers)
             {
-                range = new Range<float>(Mathf.Ceil(range.MinValue), Mathf.Floor(range.MaxValue));
+                range = new LazyRange<float>(Mathf.Ceil(range.MinValue), Mathf.Floor(range.MaxValue));
             }
             if (!IsActive())
             {
@@ -250,31 +250,31 @@ namespace LazyUI
             {
                 case PropertyValueType.IntRange:
                     {
-                        if (!targetProperty.TryGetValue(out Range<int> vv))
+                        if (!targetProperty.TryGetValue(out LazyRange<int> vv))
                         {
                             return;
                         }
-                        value = new Range<float>(vv.MinValue, vv.MaxValue);
-                        if (targetProperty.TryGetRange(out Range<int> r0) && r0.Valid())
+                        value = new LazyRange<float>(vv.MinValue, vv.MaxValue);
+                        if (targetProperty.TryGetRange(out LazyRange<int> r0) && r0.Valid())
                         {
-                            range = new Range<float>(r0.MinValue, r0.MaxValue);
+                            range = new LazyRange<float>(r0.MinValue, r0.MaxValue);
                         }
                     }
                     break;
                 case PropertyValueType.FloatRange:
                     {
-                        if (!targetProperty.TryGetValue(out Range<float> vv))
+                        if (!targetProperty.TryGetValue(out LazyRange<float> vv))
                         {
                             return;
                         }
                         value = vv;
-                        if (targetProperty.TryGetRange(out Range<float> r0) && r0.Valid())
+                        if (targetProperty.TryGetRange(out LazyRange<float> r0) && r0.Valid())
                         {
                             range = r0;
                         }
                         if (wholeNumbers)
                         {
-                            range = new Range<float>(Mathf.Ceil(range.MinValue), Mathf.Floor(range.MaxValue));
+                            range = new LazyRange<float>(Mathf.Ceil(range.MinValue), Mathf.Floor(range.MaxValue));
                         }
                     }
                     break;
@@ -317,12 +317,12 @@ namespace LazyUI
         public void StepUp()
         {
             var step = StepValue;
-            Value = new Range<float>(Value.MinValue, value.MaxValue + step);
+            Value = new LazyRange<float>(Value.MinValue, value.MaxValue + step);
         }
         public void StepDown()
         {
             var step = StepValue;
-            Value = new Range<float>(Value.MinValue - step, value.MaxValue);
+            Value = new LazyRange<float>(Value.MinValue - step, value.MaxValue);
         }
         private void AddValue(float step)
         {
@@ -331,7 +331,7 @@ namespace LazyUI
             var max = v.MaxValue;
             min += step;
             max += step;
-            Value = new Range<float>(min, max);
+            Value = new LazyRange<float>(min, max);
         }
         private void UpdateInput()
         {
@@ -358,7 +358,7 @@ namespace LazyUI
                 {
                     case PropertyValueType.IntRange:
                         {
-                            var intValue = new Range<int>((int)value.MinValue, (int)value.MaxValue);
+                            var intValue = new LazyRange<int>((int)value.MinValue, (int)value.MaxValue);
                             {
                                 if (textMin != null)
                                 {
@@ -493,7 +493,7 @@ namespace LazyUI
                         v0 -= v1 - 1;
                         v1 = 1;
                     }
-                    NormalizedValue = new Range<float>(v0, v1);
+                    NormalizedValue = new LazyRange<float>(v0, v1);
                 }
             }
         }

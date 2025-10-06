@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LazyUI
 {
-    public static class VectorUtil
+    public static class LazyVectorUtil
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Vector2 Div(Vector2 v0, Vector2 v1, float faulted = 0.0f)

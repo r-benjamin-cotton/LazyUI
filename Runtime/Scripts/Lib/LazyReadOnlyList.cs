@@ -6,16 +6,16 @@ using System.Collections.ObjectModel;
 namespace LazyUI
 {
 #if true
-    public readonly struct ReadOnlyList<T> : IList<T>, ICollection<T>, IEnumerable<T>, IEnumerable, IList, ICollection, IReadOnlyList<T>, IReadOnlyCollection<T>
+    public readonly struct LazyReadOnlyList<T> : IList<T>, ICollection<T>, IEnumerable<T>, IEnumerable, IList, ICollection, IReadOnlyList<T>, IReadOnlyCollection<T>
     {
         private readonly List<T> list;
-        public ReadOnlyList(List<T> list)
+        public LazyReadOnlyList(List<T> list)
         {
             this.list = list;
         }
-        public static implicit operator ReadOnlyList<T>(List<T> list)
+        public static implicit operator LazyReadOnlyList<T>(List<T> list)
         {
-            return new ReadOnlyList<T>(list);
+            return new LazyReadOnlyList<T>(list);
         }
         public int Capacity => list.Capacity;
         public int Count => list.Count;

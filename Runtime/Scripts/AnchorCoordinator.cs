@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace LazyUI
 {
-    using static VectorUtil;
+    using static LazyVectorUtil;
 
     /// <summary>
     /// ・anchorZero:AnchoredPositionが０になるようAnchorMinMaxを移動
