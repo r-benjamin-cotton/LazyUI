@@ -1943,6 +1943,15 @@ namespace LazyUI
             Cancel();
             DeactivateInputField();
         }
+        public override void OnMove(AxisEventData eventData)
+        {
+            //LazyDebug.Log("OnMove");
+            if (HasFocus)
+            {
+                return;
+            }
+            base.OnMove(eventData);
+        }
 
 
         public void OnUpdateSelected(BaseEventData eventData)
