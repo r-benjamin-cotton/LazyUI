@@ -358,7 +358,7 @@ namespace LazyUI
                         }
                         var allow = spec.allow;
                         var px = pi.PropertyType;
-                        if (px.IsGenericType && (px.GetGenericTypeDefinition() == typeof(Range<>)))
+                        if (px.IsGenericType && (px.GetGenericTypeDefinition() == typeof(LazyRange<>)))
                         {
                             px = px.GetGenericArguments()[0];
                             if ((spec.allow & PropertyValueType.IntRange) != 0)
@@ -426,7 +426,7 @@ namespace LazyUI
             var spec = ctxt.spec;
             var allow = spec.allow & ~(PropertyValueType.IntRange | PropertyValueType.FloatRange);
             var px = pi.PropertyType;
-            if (px.IsGenericType && (px.GetGenericTypeDefinition() == typeof(Range<>)))
+            if (px.IsGenericType && (px.GetGenericTypeDefinition() == typeof(LazyRange<>)))
             {
                 px = px.GetGenericArguments()[0];
                 if ((spec.allow & PropertyValueType.IntRange) != 0)
@@ -736,7 +736,7 @@ namespace LazyUI
                             break;
                         case PropertyValueType.IntRange:
                             {
-                                if (val is not Range<int> v)
+                                if (val is not LazyRange<int> v)
                                 {
                                     v = default;
                                 }
@@ -747,7 +747,7 @@ namespace LazyUI
                                 rr.xMin += hw;
                                 var nv0 = EditorGUI.IntField(rl, v.MinValue);
                                 var nv1 = EditorGUI.IntField(rl, v.MaxValue);
-                                var nv = new Range<int>(nv0, nv1);
+                                var nv = new LazyRange<int>(nv0, nv1);
                                 if ((val == null) || (nv != v))
                                 {
                                     ctxt.propertyValue.stringValue = LazyProperty.FormatString(nv, vt);
@@ -756,7 +756,7 @@ namespace LazyUI
                             break;
                         case PropertyValueType.FloatRange:
                             {
-                                if (val is not Range<float> v)
+                                if (val is not LazyRange<float> v)
                                 {
                                     v = default;
                                 }
@@ -767,7 +767,7 @@ namespace LazyUI
                                 rr.xMin += hw;
                                 var nv0 = EditorGUI.FloatField(rl, v.MinValue);
                                 var nv1 = EditorGUI.FloatField(rl, v.MaxValue);
-                                var nv = new Range<float>(nv0, nv1);
+                                var nv = new LazyRange<float>(nv0, nv1);
                                 if ((val == null) || (nv != v))
                                 {
                                     ctxt.propertyValue.stringValue = LazyProperty.FormatString(nv, vt);

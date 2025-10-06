@@ -10,7 +10,7 @@ namespace LazyUI
     /// stringのSerializeFieldではデフォルトでは'\'エスケープが吸い込まれて誤動作を起こ事が。。
     /// PropertyFieldで描画すればエスケープを処理しないようなのでアトリビュートを作ってみた。
     /// </summary>
-    [CustomPropertyDrawer(typeof(RawStringAttribute))]
+    [CustomPropertyDrawer(typeof(LazyRawStringAttribute))]
     public class RawStringDrawer : PropertyDrawer
     {
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)

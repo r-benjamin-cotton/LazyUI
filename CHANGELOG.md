@@ -1,6 +1,25 @@
 # Changelog
 
 
+## [1.0.2-preview.1] - 2025-9-13
+
+### Added
+
+- LazyReadOnlyArray (not tested...)
+
+### Changed
+
+- renamed several classes
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+- LazySlider bug..
+
+
 ## [1.0.1-preview.1] - 2025-9-13
 
 ### Added

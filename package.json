@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "com.r-benjamin-cotton.lazyui",
   "displayName": "LazyUI",
-  "version": "1.0.1-preview.1",
+  "version": "1.0.2-preview.1",
   "description": "LazyUI",
   "unity": "2022.3",
   "unityRelease": "15f1",

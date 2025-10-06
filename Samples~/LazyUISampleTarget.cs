@@ -86,8 +86,8 @@ public class LazyUISampleTarget : MonoBehaviour
             testInt = value;
         }
     }
-    private Range<int> testIntRange = new Range<int>(16, 112);
-    public Range<int> TestIntRange
+    private LazyRange<int> testIntRange = new LazyRange<int>(16, 112);
+    public LazyRange<int> TestIntRange
     {
         get { return testIntRange; }
         set
@@ -104,7 +104,7 @@ public class LazyUISampleTarget : MonoBehaviour
         }
     }
 
-    public Range<int> TestIntRangeRange => new Range<int>(0, 127);
+    public LazyRange<int> TestIntRangeRange => new LazyRange<int>(0, 127);
 
     private float testFloat = 1.23f;
     /// <summary>
@@ -130,11 +130,11 @@ public class LazyUISampleTarget : MonoBehaviour
             testFloat = value;
         }
     }
-    private Range<float> testFloatRange = new Range<float>(-2, +2);
+    private LazyRange<float> testFloatRange = new LazyRange<float>(-2, +2);
     /// <summary>
     /// TestFloatの範囲を動的に変更するデモ
     /// </summary>
-    public Range<float> TestFloatRange
+    public LazyRange<float> TestFloatRange
     {
         get
         {
@@ -157,11 +157,11 @@ public class LazyUISampleTarget : MonoBehaviour
     /// <summary>
     /// TestFloatRangeの範囲指定、無効の場合はUIで指定したminValue/maxValueが使われる
     /// </summary>
-    public Range<float> TestFloatRangeRange
+    public LazyRange<float> TestFloatRangeRange
     {
         get
         {
-            return new Range<float>(-3, +3);
+            return new LazyRange<float>(-3, +3);
         }
     }
 #endif
