@@ -59,6 +59,9 @@ namespace LazyUI
         private LazyText lazyView = null;
 
         [SerializeField]
+        private string textFormat = "";
+
+        [SerializeField]
         [LazyProperty(PropertyValueType.Int32 | PropertyValueType.Single | PropertyValueType.Boolean | PropertyValueType.Enum, false)]
         private LazyProperty targetProperty = new();
 
@@ -75,6 +78,8 @@ namespace LazyUI
         private bool dragging = false;
         private Vector2 dragPoint = default;
         private float dragValue = 0.0f;
+
+        private string text = "";
 
         public float Value
         {
@@ -192,6 +197,7 @@ namespace LazyUI
         }
         private void UpdateValue()
         {
+            text = "";
             range = new Range<float>(minValue, maxValue);
             if (wholeNumbers)
             {
@@ -216,6 +222,7 @@ namespace LazyUI
                             return;
                         }
                         value = vv;
+                        text = vv.ToString(textFormat);
                         if (targetProperty.TryGetRange(out Range<int> r0) && r0.Valid())
                         {
                             range = new Range<float>(r0.MinValue, r0.MaxValue);
@@ -229,6 +236,7 @@ namespace LazyUI
                             return;
                         }
                         value = vv;
+                        text = vv.ToString(textFormat);
                         if (targetProperty.TryGetRange(out Range<float> r0) && r0.Valid())
                         {
                             range = r0;
@@ -246,6 +254,7 @@ namespace LazyUI
                             return;
                         }
                         value = vv ? 1 : 0;
+                        text = vv.ToString();
                         {
                             range = new Range<float>(0, 1);
                         }
@@ -259,6 +268,7 @@ namespace LazyUI
                             return;
                         }
                         value = idx;
+                        text = targetProperty.GetValue()?.ToString();
                         {
                             range = new Range<float>(0, targetProperty.GetEnumValueCount() - 1);
                         }
@@ -382,14 +392,13 @@ namespace LazyUI
         }
         private void UpdateVisuals()
         {
-            var val = targetProperty.GetValue();
             if (view != null)
             {
-                view.text = val.ToString();
+                view.text = text;
             }
             if (lazyView != null)
             {
-                lazyView.Text = val.ToString();
+                lazyView.Text = text;
             }
             if (fillRect != null)
             {
