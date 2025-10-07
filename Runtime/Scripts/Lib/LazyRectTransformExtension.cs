@@ -8,12 +8,20 @@ namespace LazyUI
     {
         public static Vector2 Transform(this RectTransform from, Vector2 pos, RectTransform to)
         {
+            if (ReferenceEquals(from, to))
+            {
+                return pos;
+            }
             var l2l = to.worldToLocalMatrix * from.localToWorldMatrix;
             var vc = l2l.MultiplyPoint3x4(pos);
             return vc;
         }
         public static Rect Transform(this RectTransform from, Rect rect, RectTransform to)
         {
+            if (ReferenceEquals(from, to))
+            {
+                return rect;
+            }
             var l2l = to.worldToLocalMatrix * from.localToWorldMatrix;
 #if true
             // CalculateRelativeRectTransformBoundsだとworldcorner取得してからローカルへ変換してるけれど

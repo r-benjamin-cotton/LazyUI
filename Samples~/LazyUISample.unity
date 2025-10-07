@@ -2386,6 +2386,7 @@ MonoBehaviour:
   value: 1.23
   view: {fileID: 0}
   lazyView: {fileID: 0}
+  textFormat: 
   targetProperty:
     gameObject: {fileID: 828215836}
     component: {fileID: 828215837}
@@ -4981,6 +4982,7 @@ MonoBehaviour:
   value: 1.23
   view: {fileID: 0}
   lazyView: {fileID: 0}
+  textFormat: 
   targetProperty:
     gameObject: {fileID: 828215836}
     component: {fileID: 828215837}
@@ -6316,6 +6318,7 @@ MonoBehaviour:
   value: 64
   view: {fileID: 0}
   lazyView: {fileID: 0}
+  textFormat: 
   targetProperty:
     gameObject: {fileID: 828215836}
     component: {fileID: 828215837}
@@ -6752,6 +6755,7 @@ MonoBehaviour:
   value: 1
   view: {fileID: 0}
   lazyView: {fileID: 0}
+  textFormat: 
   targetProperty:
     gameObject: {fileID: 828215836}
     component: {fileID: 828215837}

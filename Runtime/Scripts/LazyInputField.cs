@@ -2086,8 +2086,11 @@ namespace LazyUI
                 caret.gameObject.SetActive(false);
                 return;
             }
+            var cpr = caret.parent as RectTransform;
+            cr = textComponent.rectTransform.Transform(cr, cpr);
+            var px = cpr.rect.size * (cpr.pivot - new Vector2(0.5f, 0.5f));
             var sd = cr.size * ((caretScale <= 0) ? 1 : caretScale);
-            var ps = cr.position;
+            var ps = cr.position + px;
             if (adaptiveCaret)
             {
                 switch (Direction)

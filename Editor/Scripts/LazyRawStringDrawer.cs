@@ -11,7 +11,7 @@ namespace LazyUI
     /// PropertyFieldで描画すればエスケープを処理しないようなのでアトリビュートを作ってみた。
     /// </summary>
     [CustomPropertyDrawer(typeof(LazyRawStringAttribute))]
-    public class RawStringDrawer : PropertyDrawer
+    public class LazyRawStringDrawer : PropertyDrawer
     {
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
