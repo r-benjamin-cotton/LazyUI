@@ -339,11 +339,11 @@ namespace LazyUI
             }
             if (currentSelectionState == SelectionState.Selected)
             {
-                if (InputActions.Up.WasPressedThisFrame())
+                if (LazyInputActions.PageUp?.WasPressedThisFrame() == true)
                 {
                     SpinUp();
                 }
-                if (InputActions.Down.WasPressedThisFrame())
+                if (LazyInputActions.PageDown?.WasPressedThisFrame() == true)
                 {
                     SpinDown();
                 }
@@ -393,7 +393,6 @@ namespace LazyUI
         protected override void OnEnable()
         {
             base.OnEnable();
-            InputActions.Activate();
             rectTransform = GetComponent<RectTransform>();
             LazyCallbacker.RegisterCallback(LazyCallbacker.CallbackType.YieldNull, 0, UpdateState);
             if (started)
@@ -416,7 +415,6 @@ namespace LazyUI
             buttonDown = -1;
             dragging = false;
             LazyCallbacker.RemoveCallback(LazyCallbacker.CallbackType.YieldNull, 0, UpdateState);
-            InputActions.Deactivate();
         }
 #if UNITY_EDITOR
         private void DelayedUpdate()

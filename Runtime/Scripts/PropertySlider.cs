@@ -115,7 +115,9 @@ namespace LazyUI
         {
             get
             {
-                var step = Mathf.Max(Mathf.Max(0, range.MaxValue - range.MinValue) * stepRatio, stepValue);
+                var s0 = Mathf.Max(0, range.MaxValue - range.MinValue) * stepRatio;
+                var s1 = stepValue;
+                var step = (LazyInputActions.Shift?.IsPressed() == true) ? Mathf.Min(s0, s1) : Mathf.Max(s0, s1);
                 if (wholeNumbers)
                 {
                     step = Mathf.Max(1, Mathf.Floor(step));
@@ -362,11 +364,11 @@ namespace LazyUI
             {
                 return;
             }
-            if (InputActions.Up.WasPressedThisFrame())
+            if (LazyInputActions.PageUp?.WasPressedThisFrame() == true)
             {
                 StepUp();
             }
-            if (InputActions.Down.WasPressedThisFrame())
+            if (LazyInputActions.PageDown?.WasPressedThisFrame() == true)
             {
                 StepDown();
             }
@@ -444,7 +446,8 @@ namespace LazyUI
 
         internal static float CalcDragValue(float delta, float dist, float dragValue)
         {
-            var value = dragValue + delta / (1.0f + Mathf.Pow(Mathf.Abs(dist), 2.0f) * 10.0f);
+            var ratio = (LazyInputActions.Shift?.IsPressed() == true) ? 0.1f : (1.0f / (1.0f + Mathf.Pow(Mathf.Abs(dist), 2.0f) * 10.0f));
+            var value = dragValue + delta * ratio;
             return Mathf.Clamp01(value);
         }
         private void UpdateDrag(PointerEventData eventData)
@@ -533,7 +536,6 @@ namespace LazyUI
         protected override void OnEnable()
         {
             base.OnEnable();
-            InputActions.Activate();
             SetupCache();
             LazyCallbacker.RegisterCallback(LazyCallbacker.CallbackType.YieldNull, 0, UpdateState);
             if (started)
@@ -553,7 +555,6 @@ namespace LazyUI
         {
             base.OnDisable();
             LazyCallbacker.RemoveCallback(LazyCallbacker.CallbackType.YieldNull, 0, UpdateState);
-            InputActions.Deactivate();
         }
 #if UNITY_EDITOR
         private void DelayedUpdate()

@@ -743,6 +743,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496455976}
   m_CullTransparentMesh: 1
+--- !u!114 &578120817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: LazyUI/Shift
+  m_EditorClassIdentifier: 
+  m_Asset: {fileID: 1920232720}
+  m_ActionId: f214611c-3f32-4c8e-979b-7463a54b6367
 --- !u!1 &586377335
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +768,7 @@ GameObject:
   - component: {fileID: 586377336}
   - component: {fileID: 586377338}
   - component: {fileID: 586377337}
+  - component: {fileID: 586377339}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -832,6 +847,21 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 0
   m_DragThreshold: 10
+--- !u!114 &586377339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586377335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f1e0e8d8e20e4f4080f27b1dbc08e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pageUpAction: {fileID: 1809143076}
+  pageDownAction: {fileID: 1451206541}
+  shiftAction: {fileID: 578120817}
 --- !u!1 &590286522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2220,6 +2250,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422230866}
   m_CullTransparentMesh: 1
+--- !u!114 &1451206541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: LazyUI/PageDown
+  m_EditorClassIdentifier: 
+  m_Asset: {fileID: 1920232720}
+  m_ActionId: 84f9c665-0ee4-4531-b0e4-0c71d687701a
 --- !u!1 &1603839741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,6 +2711,20 @@ MonoBehaviour:
     right: 0
     top: 0
     bottom: 0
+--- !u!114 &1809143076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: LazyUI/PageUp
+  m_EditorClassIdentifier: 
+  m_Asset: {fileID: 1920232720}
+  m_ActionId: 19833cc5-608f-41be-8a53-78d4ae74f2cb
 --- !u!1 &1836335927
 GameObject:
   m_ObjectHideFlags: 0
@@ -3176,6 +3234,73 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1920232720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fa3d8997a24136984ca6e2c99902bc, type: 3}
+  m_Name: LazyUIInputActions
+  m_EditorClassIdentifier: 
+  m_ActionMaps:
+  - m_Name: LazyUI
+    m_Id: 11013f18-abd9-432f-8c84-6c25bdbffff1
+    m_Asset: {fileID: 1920232720}
+    m_Actions:
+    - m_Name: PageUp
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 19833cc5-608f-41be-8a53-78d4ae74f2cb
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 1
+    - m_Name: PageDown
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 84f9c665-0ee4-4531-b0e4-0c71d687701a
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: Shift
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: f214611c-3f32-4c8e-979b-7463a54b6367
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Bindings:
+    - m_Name: 
+      m_Id: a8b2c3bd-fc23-4161-9e31-86c5ca2b54a5
+      m_Path: <Keyboard>/pageUp
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PageUp
+      m_Flags: 0
+    - m_Name: 
+      m_Id: e7324472-2211-4153-a1e9-73b2b437a12c
+      m_Path: <Keyboard>/pageDown
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PageDown
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 5d7607e8-ed43-44e9-be26-ee5b087ab2ad
+      m_Path: <Keyboard>/shift
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Shift
+      m_Flags: 0
+  m_ControlSchemes: []
 --- !u!1 &1946642140
 GameObject:
   m_ObjectHideFlags: 0

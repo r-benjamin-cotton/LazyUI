@@ -39,7 +39,6 @@ namespace LazyUI
         private PropertySpinControlEvent onValueChanged = new();
 
         private LazyRange<float> range = default;
-        private float step = 0;
 
         private bool active = false;
 
@@ -73,10 +72,17 @@ namespace LazyUI
                 UpdateState(true);
             }
         }
-        public float Step
+        public float StepValue
         {
             get
             {
+                var s0 = Mathf.Max(0, range.MaxValue - range.MinValue) * stepRatio;
+                var s1 = stepValue;
+                var step = (LazyInputActions.Shift?.IsPressed() == true) ? Mathf.Min(s0, s1) : Mathf.Max(s0, s1);
+                if (wholeNumbers)
+                {
+                    step = Mathf.Max(1, Mathf.Floor(step));
+                }
                 return step;
             }
         }
@@ -141,14 +147,6 @@ namespace LazyUI
                     break;
             }
         }
-        private void UpdateStep()
-        {
-            step = Mathf.Max(Mathf.Max(0, range.MaxValue - range.MinValue) * stepRatio, stepValue);
-            if (wholeNumbers)
-            {
-                step = Mathf.Max(1, Mathf.Floor(step));
-            }
-        }
         private void UpdateValue()
         {
             {
@@ -157,7 +155,6 @@ namespace LazyUI
                 {
                     range = new LazyRange<float>(Mathf.Round(range.MinValue), Mathf.Round(range.MaxValue));
                 }
-                UpdateStep();
             }
             active = false;
             if (!IsActive())
@@ -181,7 +178,6 @@ namespace LazyUI
                         if (targetProperty.TryGetRange(out LazyRange<int> r0) && r0.Valid())
                         {
                             range = new LazyRange<float>(r0.MinValue, r0.MaxValue);
-                            UpdateStep();
                         }
                     }
                     break;
@@ -199,7 +195,6 @@ namespace LazyUI
                             {
                                 range = new LazyRange<float>(Mathf.Ceil(range.MinValue), Mathf.Floor(range.MaxValue));
                             }
-                            UpdateStep();
                         }
                     }
                     break;
@@ -212,7 +207,6 @@ namespace LazyUI
                         value = vv ? 1 : 0;
                         {
                             range = new LazyRange<float>(0, 1);
-                            step = 1;
                         }
                     }
                     break;
@@ -226,7 +220,6 @@ namespace LazyUI
                         value = idx;
                         {
                             range = new LazyRange<float>(0, targetProperty.GetEnumValueCount() - 1);
-                            step = 1;
                         }
                     }
                     break;
@@ -289,10 +282,12 @@ namespace LazyUI
         }
         protected override void OnSpinUp()
         {
+            var step = StepValue;
             Value += Reverse ? -step : +step;
         }
         protected override void OnSpinDown()
         {
+            var step = StepValue;
             Value += Reverse ? +step : -step;
         }
         protected override void OnBeginDrag(PointerEventData eventData)

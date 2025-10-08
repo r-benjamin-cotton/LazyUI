@@ -562,11 +562,11 @@ namespace LazyUI
             {
                 return;
             }
-            if (InputActions.Up.WasPressedThisFrame())
+            if (LazyInputActions.PageUp?.WasPressedThisFrame() == true)
             {
                 Up();
             }
-            if (InputActions.Down.WasPressedThisFrame())
+            if (LazyInputActions.PageDown?.WasPressedThisFrame() == true)
             {
                 Down();
             }
@@ -613,7 +613,6 @@ namespace LazyUI
         protected override void OnEnable()
         {
             base.OnEnable();
-            InputActions.Activate();
             LazyCallbacker.RegisterCallback(LazyCallbacker.CallbackType.YieldNull, 0, UpdateState);
             if (started)
             {
@@ -632,7 +631,6 @@ namespace LazyUI
         {
             LazyCallbacker.RemoveCallback(LazyCallbacker.CallbackType.YieldNull, 0, UpdateState);
             ReleaseItems();
-            InputActions.Deactivate();
         }
 #if UNITY_EDITOR
         private void DelayedUpdate()

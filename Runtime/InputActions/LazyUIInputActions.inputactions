@@ -2,11 +2,11 @@
     "name": "InputActions",
     "maps": [
         {
-            "name": "UI",
+            "name": "LazyUI",
             "id": "11013f18-abd9-432f-8c84-6c25bdbffff1",
             "actions": [
                 {
-                    "name": "Up",
+                    "name": "PageUp",
                     "type": "Button",
                     "id": "19833cc5-608f-41be-8a53-78d4ae74f2cb",
                     "expectedControlType": "Button",
@@ -15,9 +15,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Down",
+                    "name": "PageDown",
                     "type": "Button",
                     "id": "84f9c665-0ee4-4531-b0e4-0c71d687701a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Shift",
+                    "type": "Button",
+                    "id": "f214611c-3f32-4c8e-979b-7463a54b6367",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -32,7 +41,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Up",
+                    "action": "PageUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -43,7 +52,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Down",
+                    "action": "PageDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5d7607e8-ed43-44e9-be26-ee5b087ab2ad",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shift",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

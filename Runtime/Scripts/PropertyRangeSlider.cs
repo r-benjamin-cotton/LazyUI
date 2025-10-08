@@ -125,7 +125,9 @@ namespace LazyUI
         {
             get
             {
-                var step = Mathf.Max(Mathf.Max(0, range.MaxValue - range.MinValue) * stepRatio, stepValue);
+                var s0 = Mathf.Max(0, range.MaxValue - range.MinValue) * stepRatio;
+                var s1 = stepValue;
+                var step = (LazyInputActions.Shift?.IsPressed() == true) ? Mathf.Min(s0, s1) : Mathf.Max(s0, s1);
                 if (wholeNumbers)
                 {
                     step = Mathf.Max(1, Mathf.Floor(step));
@@ -340,11 +342,11 @@ namespace LazyUI
                 return;
             }
             var step = StepValue;
-            if (InputActions.Up.WasPressedThisFrame())
+            if (LazyInputActions.PageUp?.WasPressedThisFrame() == true)
             {
                 AddValue(Reverse ? -step : +step);
             }
-            if (InputActions.Down.WasPressedThisFrame())
+            if (LazyInputActions.PageDown?.WasPressedThisFrame() == true)
             {
                 AddValue(Reverse ? +step : -step);
             }
@@ -570,7 +572,6 @@ namespace LazyUI
         protected override void OnEnable()
         {
             base.OnEnable();
-            InputActions.Activate();
             SetupCache();
             LazyCallbacker.RegisterCallback(LazyCallbacker.CallbackType.YieldNull, 0, UpdateState);
             if (started)
@@ -590,7 +591,6 @@ namespace LazyUI
         {
             base.OnDisable();
             LazyCallbacker.RemoveCallback(LazyCallbacker.CallbackType.YieldNull, 0, UpdateState);
-            InputActions.Deactivate();
         }
 #if UNITY_EDITOR
         private void DelayedUpdate()
