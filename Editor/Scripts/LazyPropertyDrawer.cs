@@ -208,6 +208,7 @@ namespace LazyUI
                         var cp = (newObj as GameObject)?.GetComponent(ct);
                         if (cp != null)
                         {
+                            ctxt.component.objectReferenceValue = cp;
                             clear = false;
                         }
                     }
