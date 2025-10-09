@@ -862,6 +862,7 @@ MonoBehaviour:
   pageUpAction: {fileID: 1809143076}
   pageDownAction: {fileID: 1451206541}
   shiftAction: {fileID: 578120817}
+  activateOnEnable: 1
 --- !u!1 &590286522
 GameObject:
   m_ObjectHideFlags: 0

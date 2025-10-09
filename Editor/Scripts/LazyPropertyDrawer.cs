@@ -199,11 +199,26 @@ namespace LazyUI
                 var newObj = EditorGUI.ObjectField(r, ctxt.gameObject.objectReferenceValue, typeof(GameObject), true);
                 if (!ReferenceEquals(ctxt.gameObject.objectReferenceValue, newObj))
                 {
+                    var clear = true;
                     ctxt.gameObject.objectReferenceValue = newObj;
-                    ctxt.component.objectReferenceValue = null;
-                    ctxt.propertyName.stringValue = "";
-                    ctxt.propertyElement.stringValue = "";
-                    ctxt.propertyValue.stringValue = "";
+#if true
+                    if (ctxt.component.objectReferenceValue != null)
+                    {
+                        var ct = ctxt.component.objectReferenceValue.GetType();
+                        var cp = (newObj as GameObject)?.GetComponent(ct);
+                        if (cp != null)
+                        {
+                            clear = false;
+                        }
+                    }
+#endif
+                    if (clear)
+                    {
+                        ctxt.component.objectReferenceValue = null;
+                        ctxt.propertyName.stringValue = "";
+                        ctxt.propertyElement.stringValue = "";
+                        ctxt.propertyValue.stringValue = "";
+                    }
                 }
             }
             return ctxt.gameObject.hasMultipleDifferentValues ? null : (ctxt.gameObject.objectReferenceValue as GameObject);
