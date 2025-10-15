@@ -71,7 +71,7 @@ namespace LazyUI
             }
             if ((image != null) && (sprites != null))
             {
-                image.overrideSprite = sprites[Mathf.Clamp(select, 0, sprites.Count)];
+                image.overrideSprite = sprites[Mathf.Clamp(select, 0, sprites.Count - 1)];
             }
         }
         private void SetupProperty(bool warn)

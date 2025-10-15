@@ -312,7 +312,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -320,6 +320,27 @@ TextureImporter:
       bones: []
       spriteID: 87714591596f1ec4e88e3084e5606d54
       internalID: 37529381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LazyUISprites_SpinS
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 212
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 5, z: 0, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ba39b3504c3774ea8ddbcf00aae991
+      internalID: 1072661945
       vertices: []
       indices: 
       edges: []
@@ -344,6 +365,7 @@ TextureImporter:
       LazyUISprites_Sankaku: 1827002979
       LazyUISprites_Sikaku: 859766005
       LazyUISprites_Spin: -337511855
+      LazyUISprites_SpinS: 1072661945
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
