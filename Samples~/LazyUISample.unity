@@ -2455,6 +2455,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 828215837}
+        m_TargetAssemblyTypeName: LazyUISampleTarget, Assembly-CSharp
+        m_MethodName: OnRelease
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1339512170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4629,6 +4644,7 @@ MonoBehaviour:
   lazyInputField: {fileID: 7503719811535668914}
   clamp: 0
   extraContentType: 0
+  textFormat: 
   targetProperty:
     gameObject: {fileID: 828215836}
     component: {fileID: 828215837}
@@ -5954,6 +5970,7 @@ MonoBehaviour:
   lazyInputField: {fileID: 0}
   clamp: 0
   extraContentType: 0
+  textFormat: 
   targetProperty:
     gameObject: {fileID: 828215836}
     component: {fileID: 828215837}
@@ -7648,7 +7665,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 6796986075538251730}
   coverGraphic: {fileID: 6815452778043600216}
-  activeImage: {fileID: 443777492, guid: 723f8578ab14d344bb3a3ebd7b33d3c3, type: 3}
+  activeImage: {fileID: 0}
   toggle: 0
   targetProperty:
     gameObject: {fileID: 828215836}
@@ -7977,7 +7994,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 6796986074023823528}
   coverGraphic: {fileID: 6815452778676140578}
-  activeImage: {fileID: 443777492, guid: 723f8578ab14d344bb3a3ebd7b33d3c3, type: 3}
+  activeImage: {fileID: 0}
   toggle: 0
   targetProperty:
     gameObject: {fileID: 828215836}
@@ -8069,7 +8086,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 6796986074190759781}
   coverGraphic: {fileID: 6815452778843731439}
-  activeImage: {fileID: 443777492, guid: 723f8578ab14d344bb3a3ebd7b33d3c3, type: 3}
+  activeImage: {fileID: 0}
   toggle: 0
   targetProperty:
     gameObject: {fileID: 828215836}
@@ -8895,7 +8912,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 6284289509501542001}
   coverGraphic: {fileID: 4725810978774119247}
-  activeImage: {fileID: 443777492, guid: 723f8578ab14d344bb3a3ebd7b33d3c3, type: 3}
+  activeImage: {fileID: 0}
   toggle: 0
   targetProperty:
     gameObject: {fileID: 828215836}

@@ -30,6 +30,9 @@ namespace LazyUI
         private ExtraContentType extraContentType = ExtraContentType.Nop;
 
         [SerializeField]
+        private string textFormat = "";
+
+        [SerializeField]
         [LazyProperty(PropertyValueType.Int32 | PropertyValueType.Single | PropertyValueType.String, false)]
         private LazyProperty targetProperty = new();
 
@@ -77,7 +80,7 @@ namespace LazyUI
                 case ExtraContentType.Nop:
                 default:
                     {
-                        var txt = LazyProperty.FormatString(propertyValue, targetProperty.GetValueType());
+                        var txt = LazyProperty.FormatString(propertyValue, targetProperty.GetValueType(), textFormat);
                         if (inputField != null)
                         {
                             inputField.text = txt;

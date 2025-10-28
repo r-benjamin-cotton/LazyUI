@@ -26,6 +26,8 @@ namespace LazyUI
         //[SerializeField]
         public QuickButtonEvent OnClick = new();
 
+        //[SerializeField]
+        public QuickButtonEvent OnRelease = new();
 
         public float RepeatDelay
         {
@@ -48,6 +50,14 @@ namespace LazyUI
                 return;
             }
             OnClick?.Invoke();
+        }
+        public void Release()
+        {
+            if (!IsActive() || !IsInteractable())
+            {
+                return;
+            }
+            OnRelease?.Invoke();
         }
         public override void OnPointerDown(PointerEventData eventData)
         {
@@ -72,12 +82,19 @@ namespace LazyUI
                 return;
             }
             {
+                Release();
                 buttonDown = -1;
             }
         }
         void ISubmitHandler.OnSubmit(BaseEventData eventData)
         {
-            Submit();
+            if (buttonDown >= 0)
+            {
+                return;
+            }
+            {
+                Submit();
+            }
         }
         private void UpdateState()
         {

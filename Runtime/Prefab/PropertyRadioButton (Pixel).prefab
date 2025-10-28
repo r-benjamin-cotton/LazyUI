@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 4140919278293268449}
   coverGraphic: {fileID: 3446586514103458527}
-  activeImage: {fileID: 443777492, guid: 723f8578ab14d344bb3a3ebd7b33d3c3, type: 3}
+  activeImage: {fileID: 0}
   toggle: 0
   targetProperty:
     gameObject: {fileID: 0}

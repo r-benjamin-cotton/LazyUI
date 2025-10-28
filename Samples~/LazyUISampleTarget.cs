@@ -189,6 +189,13 @@ public class LazyUISampleTarget : MonoBehaviour
             LazyDebug.Log("OnClick");
         }
     }
+    public void OnRelease()
+    {
+        //if (Verbose)
+        {
+            LazyDebug.Log("OnRelease");
+        }
+    }
     public void Shortcut()
     {
         //if (Verbose)

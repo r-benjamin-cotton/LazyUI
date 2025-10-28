@@ -16,7 +16,6 @@ namespace LazyUI
     /// tmp_inputfieldを参考に似た感じに仕上げてみたけれど違いもあるので注意。
     /// モバイルは未検証
     /// </summary>
-    [AddComponentMenu("LazyUI/LazyInputField", 11)]
     public class LazyInputField : Selectable,
         IUpdateSelectedHandler,
         IBeginDragHandler,
