@@ -172,7 +172,6 @@ namespace LazyUI
         {
             return !v0.Equals(v1);
         }
-
         public readonly bool Equals(LazyRange<T> other)
         {
             return min.Equals(other.min) && max.Equals(other.max);

@@ -482,6 +482,7 @@ namespace LazyUI
                 }
             }
         }
+        private bool doubleCkick = false;
         public override void OnPointerDown(PointerEventData eventData)
         {
             //LazyDebug.Log("OnPointerDown");
@@ -491,6 +492,8 @@ namespace LazyUI
             {
                 return;
             }
+            doubleCkick = LazyDoubleClicker.OnPointerDown(eventData);
+
             if (handleParentRect != null)
             {
                 if (RectTransformUtility.RectangleContainsScreenPoint(handleRect, eventData.position, eventData.pressEventCamera))
@@ -500,10 +503,23 @@ namespace LazyUI
                 }
             }
         }
+        public override void OnPointerUp(PointerEventData eventData)
+        {
+            base.OnPointerUp(eventData);
+            if (doubleCkick)
+            {
+                NormalizedValue = 0.5f;
+            }
+        }
+        void IInitializePotentialDragHandler.OnInitializePotentialDrag(PointerEventData eventData)
+        {
+            eventData.useDragThreshold = false;
+        }
         void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
         {
             dragValue = NormalizedValue;
             //LazyDebug.Log("OnBeginDrag");
+            doubleCkick = false;
         }
         void IDragHandler.OnDrag(PointerEventData eventData)
         {
@@ -514,10 +530,6 @@ namespace LazyUI
             UpdateDrag(eventData);
         }
 
-        void IInitializePotentialDragHandler.OnInitializePotentialDrag(PointerEventData eventData)
-        {
-            eventData.useDragThreshold = false;
-        }
         private void SetupCache()
         {
             handleParentRect = (handleRect == null) ? null : (handleRect.parent as RectTransform);

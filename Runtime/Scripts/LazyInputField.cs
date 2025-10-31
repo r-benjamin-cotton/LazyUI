@@ -162,9 +162,6 @@ namespace LazyUI
         private bool compositing = false;
         private bool selectionStateSelected = false;
 
-        private double pointerDownTime = 0;
-        private const double doubleClickDelay = 0.5;
-
         private string compositionString = "";
         private TouchScreenKeyboard softKeyboard = null;
 
@@ -1866,15 +1863,7 @@ namespace LazyUI
             EventSystem.current.SetSelectedGameObject(gameObject, eventData);
             base.OnPointerDown(eventData);
 
-            var doubleClick = false;
-            {
-                var timeStamp = Time.unscaledTimeAsDouble;
-                if (pointerDownTime + doubleClickDelay > timeStamp)
-                {
-                    doubleClick = true;
-                }
-                pointerDownTime = timeStamp;
-            }
+            var doubleClick = LazyDoubleClicker.OnPointerDown(eventData);
             if (!hasFocus)
             {
                 return;

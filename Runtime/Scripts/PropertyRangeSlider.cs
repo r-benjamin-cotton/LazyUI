@@ -499,6 +499,7 @@ namespace LazyUI
                 }
             }
         }
+        private bool doubleCkick = false;
         public override void OnPointerDown(PointerEventData eventData)
         {
             base.OnPointerDown(eventData);
@@ -507,6 +508,7 @@ namespace LazyUI
             {
                 return;
             }
+            doubleCkick = LazyDoubleClicker.OnPointerDown(eventData);
             if (fillParentRect != null)
             {
                 if (RectTransformUtility.RectangleContainsScreenPoint(fillRect, eventData.position, eventData.pressEventCamera))
@@ -517,6 +519,31 @@ namespace LazyUI
                 }
             }
         }
+        public override void OnPointerUp(PointerEventData eventData)
+        {
+            base.OnPointerUp(eventData);
+            if (doubleCkick)
+            {
+                var nv = NormalizedValue;
+                var cx = (nv.MinValue + nv.MaxValue) * 0.5f;
+                var dt = 0.5f - cx;
+                if (dt != 0)
+                {
+                    nv = new LazyRange<float>(nv.MinValue + dt, nv.MaxValue + dt);
+                    NormalizedValue = nv;
+                }
+            }
+        }
+
+        void IInitializePotentialDragHandler.OnInitializePotentialDrag(PointerEventData eventData)
+        {
+            eventData.useDragThreshold = false;
+        }
+        void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
+        {
+            dragValue = NormalizedValue.MinValue;
+            doubleCkick = false;
+        }
         void IDragHandler.OnDrag(PointerEventData eventData)
         {
             if (!MayDrag(eventData))
@@ -524,15 +551,6 @@ namespace LazyUI
                 return;
             }
             UpdateDrag(eventData);
-        }
-        void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
-        {
-            dragValue = NormalizedValue.MinValue;
-        }
-
-        void IInitializePotentialDragHandler.OnInitializePotentialDrag(PointerEventData eventData)
-        {
-            eventData.useDragThreshold = false;
         }
         private void SetupCache()
         {
