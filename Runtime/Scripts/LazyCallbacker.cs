@@ -78,6 +78,7 @@ namespace LazyUI
             WaitForEndOfFrame,
             Quitting,
         }
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
         private static UnityEngine.Object GetTargetObject(Action action)
         {
             if (action == null)
@@ -91,29 +92,7 @@ namespace LazyUI
             }
             return il[0].Target as UnityEngine.Object;
         }
-        private static bool Equals(Action a, Action b)
-        {
-            var a0 = a.GetInvocationList();
-            var b0 = b.GetInvocationList();
-            if (a0.Length != b0.Length)
-            {
-                return false;
-            }
-            for (int i = 0; i < a0.Length; i++)
-            {
-                var ta = a0[i];
-                var tb = b0[i];
-                if (ta.Method != tb.Method)
-                {
-                    return false;
-                }
-                if (!ReferenceEquals(ta.Target, tb.Target))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+#endif
         public static void RegisterCallbackOnce(CallbackType callbackType, int priority, Action action)
         {
             RegisterCallback(callbackType, priority, action, true);
@@ -129,16 +108,20 @@ namespace LazyUI
             var cl = callbacks[(int)callbackType];
             for (int i = 0; i < cl.Count; i++)
             {
-                if ((cl[i].priority == priority) && ReferenceEquals(cl[i].action, action))
+                if ((cl[i].priority == priority) && (cl[i].action == action))
                 {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
                     LazyDebug.LogWarning($"LazyCallbacker.RegisterCallback({callbackType}, {priority}, {GetTargetObject(action)?.name}) : already registerd..");
+#endif
                     return;
                 }
             }
             var ci = new CallbackInfo();
-            var to = GetTargetObject(action);
             ci.priority = priority;
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            var to = GetTargetObject(action);
             ci.name = to != null ? $"{priority}:{to.GetType()}.{to.name}" : $"{priority}";
+#endif
             ci.action = action;
             ci.once = once;
 #if true
@@ -161,14 +144,16 @@ namespace LazyUI
             var cl = callbacks[(int)callbackType];
             for (int i = 0; i < cl.Count; i++)
             {
-                if ((cl[i].priority == priority) && Equals(cl[i].action, action))
+                if ((cl[i].priority == priority) && (cl[i].action == action))
                 {
                     cl.RemoveAt(i);
                     //LazyDebug.LogWarning($"LazyCallbacker.RemoveCallback({callbackType}, {priority}, {GetTargetObject(action)?.name}) removed..");
                     return true;
                 }
             }
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
             LazyDebug.LogWarning($"LazyCallbacker.RemoveCallback({callbackType}, {priority}, {GetTargetObject(action)?.name}) missing..");
+#endif
             return false;
         }
 
