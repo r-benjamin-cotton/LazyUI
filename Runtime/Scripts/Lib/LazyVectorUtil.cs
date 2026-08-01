@@ -44,12 +44,12 @@ namespace LazyUI
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Vector2 Round(Vector2 v0)
         {
-            return new Vector2(Mathf.Round(v0.x), Mathf.Round(v0.y));
+            return new Vector2(MathF.Round(v0.x, MidpointRounding.AwayFromZero), MathF.Round(v0.y, MidpointRounding.AwayFromZero));
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Vector3 Round(Vector3 v0)
         {
-            return new Vector3(Mathf.Round(v0.x), Mathf.Round(v0.y), Mathf.Round(v0.z));
+            return new Vector3(MathF.Round(v0.x, MidpointRounding.AwayFromZero), MathF.Round(v0.y, MidpointRounding.AwayFromZero), MathF.Round(v0.z, MidpointRounding.AwayFromZero));
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Vector2 Floor(Vector2 v)

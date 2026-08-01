@@ -1684,6 +1684,37 @@ namespace LazyUI
                 return null;
             }
         }
+        public static bool TryConvert(object value, PropertyValueType conversionType, out object result)
+        {
+            result = null;
+            if (conversionType == PropertyValueType.String)
+            {
+                result = value?.ToString();
+                return true;
+            }
+            if (value?.GetType() == typeof(string))
+            {
+                return TryParse(value as string, conversionType, out result);
+            }
+            var ct = GetPropertyValueType(conversionType);
+            if (ct == null)
+            {
+                return false;
+            }
+            if (value is not IConvertible convertible)
+            {
+                return false;
+            }
+            try
+            {
+                result = convertible.ToType(ct, null);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         private static bool Compare<T>(PropertyTestFunction func, T v0, T v1) where T : IComparable<T>
         {
             switch (func)

@@ -98,7 +98,7 @@ namespace LazyUI
             value = range.Clamp(value);
             if (wholeNumbers)
             {
-                value = Mathf.Round(value);
+                value = MathF.Round(value, MidpointRounding.AwayFromZero);
             }
             return value;
         }
@@ -153,7 +153,7 @@ namespace LazyUI
                 range = new LazyRange<float>(minValue, maxValue);
                 if (wholeNumbers)
                 {
-                    range = new LazyRange<float>(Mathf.Round(range.MinValue), Mathf.Round(range.MaxValue));
+                    range = new LazyRange<float>(MathF.Round(range.MinValue, MidpointRounding.AwayFromZero), MathF.Round(range.MaxValue, MidpointRounding.AwayFromZero));
                 }
             }
             active = false;

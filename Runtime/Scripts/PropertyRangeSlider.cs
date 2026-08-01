@@ -166,8 +166,8 @@ namespace LazyUI
             if (wholeNumbers)
             {
                 nrw = Mathf.Floor(nrw);
-                valueMin = Mathf.Round(valueMin);
-                valueMax = Mathf.Round(valueMax);
+                valueMin = MathF.Round(valueMin, MidpointRounding.AwayFromZero);
+                valueMax = MathF.Round(valueMax, MidpointRounding.AwayFromZero);
             }
             valueMin = range.Clamp(valueMin);
             valueMax = range.Clamp(valueMax);

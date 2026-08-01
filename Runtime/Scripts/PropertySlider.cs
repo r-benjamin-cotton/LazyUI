@@ -148,7 +148,7 @@ namespace LazyUI
         {
             if (wholeNumbers)
             {
-                value = Mathf.Round(value);
+                value = MathF.Round(value, MidpointRounding.AwayFromZero);
             }
             return range.Clamp(value);
         }

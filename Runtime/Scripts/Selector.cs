@@ -434,7 +434,7 @@ namespace LazyUI
         public void Close()
         {
             opened = false;
-            Select(Mathf.RoundToInt(scrollPos), true, true);
+            Select((int)MathF.Round(scrollPos, MidpointRounding.AwayFromZero), true, true);
             immediate = false;
         }
         public override void OnPointerDown(PointerEventData eventData)
@@ -513,7 +513,7 @@ namespace LazyUI
             {
                 return;
             }
-            Select(Mathf.RoundToInt(scrollPos), true, true);
+            Select((int)MathF.Round(scrollPos, MidpointRounding.AwayFromZero), true, true);
             immediate = false;
         }
         public virtual void OnScroll(PointerEventData eventData)
