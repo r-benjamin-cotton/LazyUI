@@ -11,55 +11,74 @@ namespace LazyUI
     [RequireComponent(typeof(RectTransform))]
     public class PropertyReflection : MonoBehaviour
     {
-        [SerializeField]
-        [LazyProperty(PropertyValueType.Everything, false)]
-        private LazyProperty sourceProperty = new();
+        [Serializable]
+        private struct Reflection
+        {
+            [LazyProperty(PropertyValueType.Everything, false)]
+            public LazyProperty sourceProperty;
 
+            [SerializeField]
+            [LazyProperty(PropertyValueType.Everything, false)]
+            public LazyProperty targetProperty;
+        }
         [SerializeField]
-        [LazyProperty(PropertyValueType.Everything, false)]
-        private LazyProperty targetProperty = new();
+        private Reflection[] reflections = null;
 
         private void UpdateProperty()
         {
-            if (!sourceProperty.IsValid() || !targetProperty.IsValid())
+            if (reflections == null)
             {
                 return;
             }
-            var sourceValue = sourceProperty.GetValue();
-            if (LazyProperty.TryConvert(sourceValue, targetProperty.GetValueType(), out object targetValue))
+            foreach (var r in reflections)
             {
-                targetProperty.SetValue(targetValue);
+                if ((r.sourceProperty == null) || (r.targetProperty == null))
+                {
+                    continue;
+                }
+                if (!r.sourceProperty.IsValid() || !r.targetProperty.IsValid())
+                {
+                    return;
+                }
+                var sourceValue = r.sourceProperty.GetValue();
+                if (LazyProperty.TryConvert(sourceValue, r.targetProperty.GetValueType(), out object targetValue))
+                {
+                    r.targetProperty.SetValue(targetValue);
+                }
             }
         }
 
         private void SetupProperty(bool warn)
         {
-            if (sourceProperty == null)
-            {
-                sourceProperty = new();
-            }
-            if (targetProperty == null)
-            {
-                targetProperty = new();
-            }
-            sourceProperty.Invalidate();
-            targetProperty.Invalidate();
-            if (sourceProperty.IsEmpty() || targetProperty.IsEmpty())
+            if (reflections == null)
             {
                 return;
             }
-            if (!sourceProperty.IsValid())
+            foreach (var r in reflections)
             {
-                if (warn)
+                if ((r.sourceProperty == null) || (r.targetProperty == null))
                 {
-                    LazyDebug.LogWarning($"{transform.GetFullPath()}: sourceProperty is not valid. : {sourceProperty}");
+                    continue;
                 }
-            }
-            if (!targetProperty.IsValid())
-            {
-                if (warn)
+                r.sourceProperty.Invalidate();
+                r.targetProperty.Invalidate();
+                if (r.sourceProperty.IsEmpty() || r.targetProperty.IsEmpty())
                 {
-                    LazyDebug.LogWarning($"{transform.GetFullPath()}: destinationProperty is not valid. : {targetProperty}");
+                    return;
+                }
+                if (!r.sourceProperty.IsValid())
+                {
+                    if (warn)
+                    {
+                        LazyDebug.LogWarning($"{transform.GetFullPath()}: sourceProperty is not valid. : {r.sourceProperty} => {r.targetProperty}");
+                    }
+                }
+                if (!r.targetProperty.IsValid())
+                {
+                    if (warn)
+                    {
+                        LazyDebug.LogWarning($"{transform.GetFullPath()}: targetProperty is not valid. : {r.sourceProperty} => {r.targetProperty}");
+                    }
                 }
             }
         }
