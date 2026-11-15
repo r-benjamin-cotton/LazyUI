@@ -1016,10 +1016,21 @@ namespace LazyUI
         }
         public void SelectAll()
         {
-            cursorPos = -1;
-            cursorJmp = -1;
-            selectionTop = 0;
-            selectionEnd = text.Length;
+            var len = text.Length;
+            if (len == 0)
+            {
+                cursorPos = 0;
+                cursorJmp = -1;
+                selectionTop = -1;
+                selectionEnd = -1;
+            }
+            else
+            {
+                cursorPos = -1;
+                cursorJmp = -1;
+                selectionTop = 0;
+                selectionEnd = len;
+            }
             DirtyVisuals();
         }
         private enum WordType
@@ -2071,7 +2082,6 @@ namespace LazyUI
             var cr = textComponent.GetCursorRect(cp);
             if ((cr.width == 0) || (cr.height == 0))
             {
-                caret.gameObject.SetActive(false);
                 return;
             }
             var cpr = caret.parent as RectTransform;
